@@ -1,0 +1,59 @@
+/******************************************************************
+
+Stylesheet: Login Screen
+
+******************************************************************/
+
+body.login {
+	background: #eee;
+	background-image: linear-gradient(#fff, #ddd);
+}
+
+/*
+Logo above login form
+*/
+.login h1 a {
+	background: url(../img/login-logo.png) no-repeat top center;
+	width: 326px;
+	height: 67px;
+	text-indent: -9999px;
+	overflow: hidden;
+	padding-bottom: 15px;
+	display: block;
+}
+
+form {
+	margin-left: 8px;
+	padding: 26px 24px 46px;
+	font-weight: normal;
+	background: white;
+	border: 1px solid #eee;
+	border-radius: 4px;
+	box-shadow: none;
+}
+
+body form .input {
+	font-weight: 200;
+	font-size: 24px;
+	width: 97%;
+	padding: 3px;
+	margin-top: 2px;
+	margin-right: 6px;
+	margin-bottom: 16px;
+	border: 1px solid #E5E5E5;
+	background: #FBFBFB;
+	outline: none;
+	box-shadow: inset 1px 1px 3px rgba(black, .1);
+}
+
+
+#wp-submit {
+	background: #669933;
+	border: darken(#669933, 20%);
+	font-weight: bold;
+	text-transform: uppercase;
+	&:hover {
+		background: darken(#669933, 10%);
+	}
+}
+

@@ -1,0 +1,149 @@
+/******************************************************************
+
+Stylesheet: Mixins
+
+******************************************************************/
+
+/*********************
+FONT STACKS
+*********************/
+$sans_serif:        "Gotham", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$serif:             "Georgia", Cambria, Times New Roman, Times, serif;
+
+
+/*********************
+Grid gutter width
+*********************/
+
+$gutter:            0.75em;
+
+
+/*********************
+Default bottom margin
+
+This is used for paragraphs, 
+lists, and pretty much everywhere 
+as a base
+*********************/
+
+$default_margin:    1.5em;
+
+
+/*********************
+COLORS
+*********************/
+
+$alert_blue:        #d9edf7;
+$alert_green:       #dff0d8;
+$alert_red:         #f2dede;
+$alert_yellow:      #fcf8e3;
+
+$black:             #222;
+$white:             #fff;
+
+$gray:              #999;
+$gray_light:        #EEF0F4;
+$gray_dark:         #58585b;
+$gray_disabled:     #595d65;
+$text_color:        #333;
+
+$link_color:        red;
+$link_hover:        lighten($link_color, 10%);
+
+
+/*********************
+REUSABLE ITEMS
+*********************/
+
+// INLINE-BLOCK
+// inline-block support for legacy browsers
+@mixin inline-block($position: middle) {
+	display: inline-block;
+	vertical-align: $position;
+	@include old-ie {
+		*display: inline;
+		zoom: 1;
+	}
+}
+
+
+/*********************
+BUTTONS
+*********************/
+
+%btn {
+	border: none;
+	border-radius: 4px;
+	color: $white;
+	cursor: pointer;
+	display: inline-block;
+	font-family: $sans_serif;
+	font-size: 16px;
+	font-weight: bold;
+	letter-spacing: 0.5px !important;
+	line-height: 32px;
+	padding: 4px 16px;
+	position: relative;
+	text-decoration: none;
+	transition: background-color 0.2s ease-in-out;
+
+	&:hover, &:focus {
+		color: $white;
+		text-decoration: none;
+	}
+
+	&:active {
+		top: 1px;
+	}
+
+}
+
+.search-submit,
+.form-submit input,
+.button {
+	@extend %btn;
+	background-color: $link_color;
+
+	&:hover,
+	&:focus {
+		background-color: $link_hover;
+	}
+
+	&:active {
+		background-color: darken($link_color, 5%);
+	}
+}
+
+
+/*********************
+BREAKPOINTS
+*********************/
+
+// FOR OLD IE
+$ignore-mqs:		false !default;
+
+// BREAK POINTS
+$small:				"screen and (min-width: 30em)"; // 480px
+$medium:			"screen and (min-width: 48em)";	// 768px
+$large:				"screen and (min-width: 64em)";	// 1024px
+$xlarge:			"screen and (min-width: 90em)";	// 1440px
+
+@mixin breakpoint($point) {
+	@if $ignore-mqs {
+		@content; // output all content passed in
+	}
+	@else {
+		@if $point == xlarge {
+			@media #{$xlarge} { @content; }	// output xlarge screen content
+		}
+		@if $point == large {
+			@media #{$large} { @content; }  // output large screen content
+		}
+		@if $point == medium {
+			@media #{$medium} { @content; } // output medium screen content
+		}
+		@if $point == small {
+			@media #{$small} { @content; }  // output small screen content
+		}
+	}
+}

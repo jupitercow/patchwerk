@@ -1,0 +1,15 @@
+/*
+Theme Name:  Patchwerk
+Theme URI:   https://github.com/jupitercow/patchwerk
+Description: Simple responsive starter theme built for performance and development speed. Includes GULP processing for styles and scripts.
+Author:      Jupitercow
+Author URI:  http://Jupitercow.com/
+Version:     1.0.8
+License:     GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags:        responsive, gulp, starter-theme
+*/
+
+.sticky {}          /* DO NOT EDIT THIS */
+.gallery-caption {} /* THESE ARE USELESS */
+.bypostauthor {}    /* THEY ARE ONLY TO KEEP THEME CHECK HAPPY */
