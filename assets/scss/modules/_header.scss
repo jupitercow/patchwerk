@@ -1,0 +1,17 @@
+/******************************************************************
+
+Stylesheet: Header
+
+******************************************************************/
+
+#header {
+	background: $black;
+
+	#inner-header {
+		position: relative;
+	}
+
+	#logo {
+		margin: $margin $margin $margin $gutter;
+	}
+}

@@ -34,33 +34,37 @@
 
 	<div id="container">
 
-		<header class="header" role="banner" id='headroom'>  
+		<header id="header" role="banner">  
 
 			<div id="inner-header" class="wrap cf">
 
-				<div id="logo"><a href="<?php echo home_url(); ?>" title="Home">
-					<img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.png" alt="<?php echo get_option('blogname'); ?>" />
-				</a></div>
+				<div id="logo">
+					<a href="<?php echo home_url(); ?>" title="Home">
+						<img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.png" alt="<?php echo get_option('blogname'); ?>" />
+					</a>
+				</div>
 
-				<span id="mobilemenu">
+				<span id="mobile-nav">
 					<span class="icon-menu" aria-hidden="true"></span>
 					<span class="screen-reader-text">MENU</span>
 				</span>
 
-				<nav role="navigation">
-				<?php wp_nav_menu(array(
-					'container' => false,						// remove nav container
-					'menu' => 'The Main Menu',					// nav name
-					'menu_id' => 'top-nav',				        // adding custom nav id
-					'menu_class' => 'nav top-nav',				// adding custom nav class
-					'theme_location' => 'main-nav',				// where it's located in the theme
-					'before' => '',								// before the menu
-					'after' => '',								// after the menu
-					'link_before' => '',						// before each link
-					'link_after' => '',							// after each link
-					'depth' => 2								// limit the depth of the nav
-				)); ?>
-				</nav>
+				<div id="side-drawer">
+					<nav id="main-nav" role="navigation">
+					<?php wp_nav_menu(array(
+						'container' => false,						// remove nav container
+						'menu' => 'Main Navigation',				// nav name
+						'menu_id' => '',						 	// adding custom nav id
+						'menu_class' => '',							// adding custom nav class
+						'theme_location' => 'main-nav',				// where it's located in the theme
+						'before' => '',								// before the menu
+						'after' => '',								// after the menu
+						'link_before' => '',						// before each link
+						'link_after' => '',							// after each link
+						'depth' => 2								// limit the depth of the nav
+					)); ?>
+					</nav>
+				</div>
 
 			</div>
 

@@ -30,24 +30,27 @@ var timeToWaitForLast = 100;
 /*
  * Put all your regular jQuery in here.
 */
-jQuery(document).ready(function($) {
-
-	$('#mobilemenu').click(function(e) {
-		e.preventDefault();
-		var $this = $(this);
-		$this.toggleClass('active');
-		$('span', this).toggleClass('icon-menu').toggleClass('icon-close');
-		$('.top-nav').slideToggle(200);
-	});
+document.addEventListener('DOMContentLoaded', function(){
 
 	/**
 	 * Adds the screen reader text to the icon's title so it will show on hover
 	 */
-	$('span[aria-hidden=true]').each(function() {
-		var $this = $(this);
-		var $screentext = $this.siblings('.screen-reader-text');
-		if ( $screentext.length )
-			$this.attr('title', $screentext.text());
-	});
+	var icons = document.querySelectorAll('span[aria-hidden=true]');
+	for ( var i = 0, len = icons.length; i < len; i++ )
+	{
+		var text = icons[i].parentNode.querySelector('.screen-reader-text').innerHTML;
+		icons[i].setAttribute('title', text);
+	}
+
+	/**
+	 * For the share permalink field
+	 */
+	var share_links = document.getElementsByClassName('share-links');
+	for ( var i = 0, len = share_links.length; i < len; i++ )
+	{
+		this.querySelector('.share-url').addEventListener('click', function(e) {
+			this.select();
+		});
+	}
 
 }); /* end of as page load scripts */

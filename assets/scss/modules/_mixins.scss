@@ -15,7 +15,7 @@ $serif:             "Georgia", Cambria, Times New Roman, Times, serif;
 Grid gutter width
 *********************/
 
-$gutter:            0.75em;
+$gutter:            0.75rem;		// 12px
 
 
 /*********************
@@ -23,10 +23,18 @@ Default bottom margin
 
 This is used for paragraphs, 
 lists, and pretty much everywhere 
-as a base
+as a base to help with vertical rhythm
 *********************/
 
-$default_margin:    1.5em;
+$margin:            $gutter*2;
+
+
+/*********************
+The golden ratio
+*********************/
+
+$grid_large:        61.803398875;
+$grid_small:        38.196601125;
 
 
 /*********************
@@ -48,7 +56,7 @@ $gray_disabled:     #595d65;
 $text_color:        #333;
 
 $link_color:        red;
-$link_hover:        lighten($link_color, 10%);
+$link_hover:        darken($link_color, 10%);
 
 
 /*********************
@@ -78,11 +86,12 @@ BUTTONS
 	cursor: pointer;
 	display: inline-block;
 	font-family: $sans_serif;
-	font-size: 16px;
+	font-size: 1rem;
 	font-weight: bold;
+	height: 3rem;
 	letter-spacing: 0.5px !important;
-	line-height: 32px;
-	padding: 4px 16px;
+	line-height: 3rem;
+	padding: 0 1rem;
 	position: relative;
 	text-decoration: none;
 	transition: background-color 0.2s ease-in-out;
@@ -95,12 +104,12 @@ BUTTONS
 	&:active {
 		top: 1px;
 	}
-
 }
 
 .search-submit,
 .form-submit input,
-.button {
+.button,
+.btn {
 	@extend %btn;
 	background-color: $link_color;
 
@@ -120,6 +129,7 @@ BREAKPOINTS
 *********************/
 
 // FOR OLD IE
+$old-ie:			false !default;
 $ignore-mqs:		false !default;
 
 // BREAK POINTS
@@ -129,8 +139,13 @@ $large:				"screen and (min-width: 64em)";	// 1024px
 $xlarge:			"screen and (min-width: 90em)";	// 1440px
 
 @mixin breakpoint($point) {
-	@if $ignore-mqs {
-		@content; // output all content passed in
+	@if $ignore-mqs or $old-ie {
+		@if $old-ie and $point == xlarge {
+
+		}
+		@else {
+			@content; // output all content passed in
+		}
 	}
 	@else {
 		@if $point == xlarge {

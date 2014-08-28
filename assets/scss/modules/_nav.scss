@@ -1,0 +1,243 @@
+/******************************************************************
+
+Stylesheet: Navigation
+
+******************************************************************/
+
+
+
+/*********************
+NAVIGATION STYLES
+*********************/
+
+nav {
+	margin: 0;
+
+	li {
+		@include breakpoint(medium)
+		{
+			float: left;
+			position: relative;
+		}
+
+		a, a:visited {
+			display: block;
+			text-decoration: none;
+			padding: $gutter;
+
+			&:hover, &:focus {
+				background: $link_hover;
+				color: $white;
+			}
+		}
+
+		ul.sub-menu,
+		ul.children {
+			@include breakpoint(medium)
+			{
+				margin-top: 0;
+				border: 1px solid $gray;
+				border-top: 0;
+				position: absolute;
+				overflow: hidden;
+				visibility: hidden;
+				z-index: 8999;
+			}
+
+			li {
+				a, a:visited {
+					@include breakpoint(medium)
+					{
+						padding-left: 10px;
+						border-right: 0;
+						display: block;
+						width: 180px;
+					}
+
+					padding-left: 30px;
+				}
+
+			}
+
+		}
+
+		@include breakpoint(medium)
+		{
+			/* showing sub-menus */
+			&:hover ul {
+				top: auto;
+				overflow: visible;
+				visibility:visible;
+			}
+		}
+
+	}
+
+	/* highlight current page */
+	li.current-menu-item,
+	li.current_page_item,
+	li.current-page-ancestor {
+
+		a {}
+
+	}
+
+}
+
+
+/*********************
+Simple Mobile Nav
+********************* /
+
+#mobile-nav {
+	display: block;
+	float: right;
+	text-align: right;
+	text-decoration: none;
+	color: $link_color;
+	cursor: pointer;
+	font-size: 1.125em;
+	&:hover, &:focus {
+		color: $link_hover;
+	}
+}
+
+#main-nav {
+	overflow: hidden;
+	max-height: 0;
+	transition-property: all;
+	transition-duration: 0.5s;
+	transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+
+	&.active {
+		max-height: 50rem;
+		transition-timing-function: ease-in;
+	}
+}
+
+@include breakpoint(medium)
+{
+	#mobile-nav {
+		display: none;
+	}
+
+	#main-nav {
+		//display: block !important;
+		max-height: 100px;
+	}
+}
+
+
+/*********************
+Side Drawer Mobile Nav
+*********************/
+
+#mobile-nav {
+	color: $link_color;
+	cursor: pointer;
+	display: block;
+	float: right;
+	font-size: 30px;
+	height: 68px;
+	right: 0px;
+	line-height: 70px;
+	padding: 0;
+	position: absolute;
+	overflow: hidden;
+	text-align: center;
+	text-decoration: none;
+	top: 0;
+	transition: all 0.3s ease-in-out;
+	width: 70px;
+	z-index: 900;
+
+	&.active {
+		background: $black;
+		color: $white;
+	}
+}
+
+#side-drawer {
+	background-color: $black;
+	bottom: 0;
+	box-shadow: inset 0 0 20px 0 rgba( 0, 0, 0, 0.1 );
+	position: fixed;
+	right: 0;
+	top: 0;
+	transform: translateX(180px);
+	width: 180px;
+	z-index: 9999;
+
+	@include breakpoint(medium) {
+		margin: 0 auto;
+		position: relative;
+		top: 0;
+		transform: none;
+		transition: none;
+		width: 100%;
+		z-index: 1;
+
+		.nav-primary {
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+}
+
+#nav-overlay {
+	background-color: $white;
+	bottom: 0;
+	display: none;
+	left: 0;
+	opacity: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	transition: opacity 0.5s ease-in-out;
+	z-index: 800;
+}
+
+#container {
+	transition: transform 0.2s ease-in-out;
+}
+
+.open-drawer {
+	#container {
+		transform: translateX(-180px);
+	}
+
+	.nav {
+		li a {
+			text-align: left !important;
+		}
+	}
+
+	#nav-overlay {
+		display: block;
+		opacity: 0.5;
+	}
+}
+
+
+/*********************
+Toggle Mobile ON/OFF
+*********************/
+
+@include breakpoint(medium)
+{
+	.open-drawer {
+		#container {
+			transform: none;
+		}
+	}
+
+	.open-drawer #nav-overlay,
+	#nav-overlay,
+	#mobile-nav {
+		display: none;
+	}
+
+	#main-nav {
+		display: block !important;
+	}
+}

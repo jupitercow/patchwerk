@@ -4,211 +4,178 @@ Stylesheet: Grid
 
 ******************************************************************/
 
-@mixin grid-col {
+@mixin grid_col( $cols:all, $total:12, $left:0, $right:0 ) {
 	float: left;
-	padding-right: $gutter;
+	margin: 0 0 $margin;
+	padding: 0 $gutter;
+
+	@if 'all' == $cols {
+		width: 100%;
+	}
+	@else if "large" == $cols
+	{
+		width: #{$grid_large}#{'%'};
+		@if 0 < $right {
+			margin-right: #{$grid_small}#{'%'};
+		}
+		@else if 0 < $left {
+			margin-left: #{$grid_small}#{'%'};
+		}
+	}
+	@else if "small" == $cols
+	{
+		width: #{$grid_small}#{'%'};
+		@if 0 < $right {
+			margin-right: #{$grid_large}#{'%'};
+		}
+		@else if 0 < $left {
+			margin-left: #{$grid_large}#{'%'};
+		}
+	}
+	@else {
+		width: percentage($cols/$total);
+		@if "first" == $left {
+			margin-right: auto;
+		}
+		@else if "last" != $left and 0 < $left {
+			margin-left: percentage($left/$total);
+		}
+
+		@if "last" == $right or "last" == $left {
+			margin-left: auto;
+		}
+		@else if "first" != $right and 0 < $right {
+			margin-right: percentage($right/$total);
+		}
+	}
 }
 
-@mixin goldlarge {
-	@include grid-col;
-	width: 61.803398875%;
-}
-@mixin goldsmall {
-	@include grid-col;
-	width: 38.196601125%;
-}
-
-@mixin all   {
-	@include grid-col;
-	width: 100%;
-	padding-right: 0;
-}
-
-@mixin one {
-	@include grid-col;
-	width: 8.33%;
-}
-@mixin two {
-	@include grid-col;
-	width: 16.6666666667%;
-}
-@mixin three {
-	@include grid-col;
-	width: 25%;
-}
-@mixin four {
-	@include grid-col;
-	width: 33.3333333333%;
-}
-@mixin five {
-	@include grid-col;
-	width: 41.6666666667%;
-}
-@mixin six {
-	@include grid-col;
-	width: 50%;
-}
-@mixin seven {
-	@include grid-col;
-	width: 58.3333333333%;
-}
-@mixin eight {
-	@include grid-col;
-	width: 66.6666666667%;
-}
-@mixin nine {
-	@include grid-col;
-	width: 75%;
-}
-@mixin ten {
-	@include grid-col;
-	width: 83.3333333333%;
-}
-@mixin eleven {
-	@include grid-col;
-	width: 91.6666666667%;
-}
-
-@mixin fullwidth {
-	@include grid-col;
-	width: 91.6666666667%;
-}
-
-
-.s-all {
-	@include all;
-}
-
-.s-1of6 {
-	@include two;
-}
-.s-2of6 {
-	@include four;
-}
-.s-3of6 {
-	@include six;
-}
-.s-4of6 {
-	@include eight;
-}
-.s-5of6 {
-	@include ten;
-}
-
-
-@include breakpoint(medium)
+@mixin flex_grid( $cols:12, $full:true )
 {
-	// Simple Golden Ratio
-	.goldlarge {
-		@include goldlarge;
+	display: flex;
+	flex-flow: row wrap;
+
+	@if false != $full {
+		margin: 0 -$gutter;
 	}
-	.goldsmall {
-		@include goldsmall;
+	@else {
+		padding: 0 $gutter;
 	}
 
-	.m-all {
-		@include all;
-	}
+	> * {
+		display: flex;
+		flex-basis: percentage(1/$cols);
+		flex-direction: column;
+		margin: 0 0 $margin;
+		padding: 0 $gutter;
 
-	.onecol,
-	.m-1of12 {
-		@include one;
-	}
-	.twocol,
-	.m-2of12 {
-		@include two;
-	}
-	.threecol,
-	.m-3of12 {
-		@include three;
-	}
-	.fourcol,
-	.m-4of12 {
-		@include four;
-	}
-	.fivecol,
-	.m-5of12 {
-		@include five;
-	}
-	.sixcol,
-	.m-6of12 {
-		@include six;
-	}
-	.sevencol,
-	.m-7of12 {
-		@include seven;
-	}
-	.eightcol,
-	.m-8of12 {
-		@include eight;
-	}
-	.ninecol,
-	.m-9of12 {
-		@include nine;
-	}
-	.tencol,
-	.m-10of12 {
-		@include ten;
-	}
-	.elevencol,
-	.m-11of12 {
-		@include eleven;
+		&:first-child {
+			margin-left: -1px;
+		}
 	}
 }
 
-
-@include breakpoint(large)
+@mixin flex_grid_col( $cols:1, $total:12, $left:0, $right:0 )
 {
-	.l-all  {
-		@include all;
+	@if "all" == $cols
+	{
+		flex-basis: 100%;
 	}
+	@else if "large" == $cols
+	{
+		flex-basis: #{$grid_large}#{'%'};
+		@if 0 < $right {
+			margin-right: #{$grid_small}#{'%'};
+		}
+		@else if 0 < $left {
+			margin-left: #{$grid_small}#{'%'};
+		}
+	}
+	@else if "small" == $cols
+	{
+		flex-basis: #{$grid_small}#{'%'};
+		@if 0 < $right {
+			margin-right: #{$grid_large}#{'%'};
+		}
+		@else if 0 < $left {
+			margin-left: #{$grid_large}#{'%'};
+		}
+	}
+	@else
+	{
+		flex-basis: percentage($cols/$total);
+		@if "first" == $left {
+			margin-right: auto;
+		}
+		@else if "last" != $left and 0 < $left {
+			margin-left: percentage($left/$total);
+		}
 
-	.l-1of12 {
-		@include one;
-	}
-	.l-2of12 {
-		@include two;
-	}
-	.l-3of12 {
-		@include three;
-	}
-	.l-4of12 {
-		@include four;
-	}
-	.l-5of12 {
-		@include five;
-	}
-	.l-6of12 {
-		@include six;
-	}
-	.l-7of12 {
-		@include seven;
-	}
-	.l-8of12 {
-		@include eight;
-	}
-	.l-9of12 {
-		@include nine;
-	}
-	.l-10of12 {
-		@include ten;
-	}
-	.l-11of12 {
-		@include eleven;
+		@if "last" == $right or "last" == $left {
+			margin-left: auto;
+		}
+		@else if "first" != $right and 0 < $right {
+			margin-right: percentage($right/$total);
+		}
 	}
 }
 
+@mixin flex_grid_auto( $cols:false )
+{
+	display: flex;
+	justify-content: space-between;
+	flex-flow: row wrap;
 
-// the first column
-.firstcol,
-.first-col {
-	clear: left;
-}
+	> * {
+		display: flex;
+		flex-basis: 100%;
+		flex-direction: column;
+		flex-grow: 0;
+		margin: 0 0 $margin;
 
+		@if 1 == $cols
+		{
+			flex-basis: 100%;
+			flex-grow: 0;
+			margin: 0 0 $margin;
+		}
+		@else if $cols
+		{
+			flex-basis: calc(#{percentage(1/$cols)} - #{$gutter});
+			flex-grow: 1;
+			margin-bottom: $margin;
+			&:nth-child(n) {
+				margin-left: $gutter;
+				margin-right: $gutter;
+			}
+			&:nth-child(#{$cols}n+#{$cols}) {
+				margin-left: auto;
+				margin-right: 0;
+			}
+			&:nth-child(#{$cols}n+1) {
+				margin-left: 0;
+				margin-right: auto;
+			}
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+		@else
+		{
+			flex-basis: 0;
+			flex-grow: 1;
+			margin-bottom: $margin;
+			&:nth-child(n) {
+				margin-left: $gutter;
+				margin-right: $gutter;
+			}
 
-// the last column
-.lastcol,
-.last-col {
-	float: right;
-	padding-right: 0;
+			&:first-child {
+				margin-left: 0;
+			}
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+	}
 }

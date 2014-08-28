@@ -82,7 +82,7 @@ function custom_theme_support()
 
 	/* registering menus */
 	register_nav_menus( array(
-		'main-nav'     => 'The Main Menu',  // main nav in header
-		'footer-links' => 'Footer Links',   // links in footer
+		'main-nav'   => 'Main Navigation',     // main nav in header
+		'footer-nav' => 'Footer Navigation',   // links in footer
 	) );
 }

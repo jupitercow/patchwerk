@@ -1,8 +1,6 @@
 <?php
 /**
  * Cleanup WP functionality
- *
- * @return	void
  */
 
 /**

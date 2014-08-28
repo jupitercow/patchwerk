@@ -1,9 +1,9 @@
-/*! Built by Creative Slice in Tucson, AZ! http://creativeslice.com */
+/*! Built by Jupitercow, http://jupitercow.com/ */
 
 /******************************************************************
 
 Site Name: Patchwerk Starter Theme
-Author: Creative Slice
+Author: Jupitercow
 
 ******************************************************************/
 
@@ -11,39 +11,54 @@ Author: Creative Slice
 IMPORTING MODULES
 *********************/
 
-// normalize: http://necolas.github.io/normalize.css/
+/* normalize: http://necolas.github.io/normalize.css/ */
 @import "modules/normalize";
 
-// import mixins
+/* import mixins */
 @import "modules/mixins";
 
-// import fonts
-@import "modules/fonts";
-
-// import icons
-@import "modules/icons";
-
-// typography
-@import "modules/typography";
-
-// wordpress content images
-@import "modules/wpimage";
-
-// forms
-@import "modules/forms";
-
-// the grid
+/* the grid */
 @import "modules/grid";
 
-// comments
+/* import fonts */
+@import "modules/fonts";
+
+/* svg icons * /
+@import "../icons/icons";
+
+/* typography */
+@import "modules/typography";
+
+/* wordpress content images */
+@import "modules/wpimage";
+
+/* forms */
+@import "modules/forms";
+
+/* search form */
+@import "modules/searchform";
+
+/* comments */
 @import "modules/comments";
 
-// pagenavi
+/* site navigation */
+@import "modules/nav";
+
+/* page navigation */
 @import "modules/pagenavi";
+
+/* header */
+@import "modules/header";
+
+/* sidebar */
+@import "modules/sidebar";
+
+/* footer */
+@import "modules/footer";
 
 
 /*********************
-BASE (MOBILE) SIZE
+BASE
 *********************/
 
 @import "base";
@@ -52,6 +67,7 @@ BASE (MOBILE) SIZE
 /*********************
 PRINT STYLESHEET
 *********************/
+
 @media print {
 
 	@import "modules/print";

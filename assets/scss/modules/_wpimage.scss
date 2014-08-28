@@ -12,7 +12,7 @@ ENTRY CONTENT IMAGES
 
 	img {
 		height: auto;
-		margin: 0 0 $default_margin;
+		margin: 0 0 $margin;
 		max-width: 100%;
 	}
 
@@ -32,12 +32,12 @@ ENTRY CONTENT IMAGES
 		display: inline;
 		float: left;
 		margin-left: 0em;
-		margin-right: $default_margin;
+		margin-right: $margin;
 	}
 	.alignright, img.alignright, figure.alignright, dl.alignright {
 		display: inline;
 		float: right;
-		margin-left: $default_margin;
+		margin-left: $margin;
 		margin-right: 0em;
 	}
 	.aligncenter, img.aligncenter, figure.aligncenter, dl.aligncenter {
@@ -67,10 +67,10 @@ CAPTIONS
 	text-align: center;
 
 	&.alignleft {
-		margin-right: $default_margin;
+		margin-right: $margin;
 	}
 	&.alignright {
-		margin-left: $default_margin;
+		margin-left: $margin;
 	}
 	&.aligncenter {
 		margin-right: auto;

@@ -1,0 +1,16 @@
+/******************************************************************
+
+Stylesheet: Footer
+
+******************************************************************/
+
+#footer {
+	clear: both;
+	background-color: $black;
+	color: $gray_light;
+
+	.copyright {
+		@include grid_col(all);
+		clear: both;
+	}
+}

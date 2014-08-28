@@ -63,6 +63,10 @@ function patch_enqueue()
 		
 		/* Adding scripts file in the footer */
 		wp_register_script( 'patch-js', get_stylesheet_directory_uri() . '/assets/js/scripts.js', array( 'jquery' ), '', true );
+		$args = array(
+			'ajaxurl' => admin_url('admin-ajax.php'),
+		);
+		wp_localize_script( 'patch-js', 'patch', $args );
 		
 		// enqueue styles and scripts
 		wp_enqueue_script( array(

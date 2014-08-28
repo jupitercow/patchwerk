@@ -10,8 +10,8 @@ add_action( 'welcome_panel',              'patch_dashboard_welcome_cleanup' );
 add_action( 'admin_menu',                 'patch_remove_menu_pages' );
 add_action( 'wp_before_admin_bar_render', 'patch_customize_admin_bar' );
 add_action( 'admin_init',                 'patch_dependencies' );
-add_action( 'wp_head', 					  'style_admin_bar' );
-add_action( 'wp_before_admin_bar_render', 'custom_adminbar_titles' );
+add_action( 'wp_before_admin_bar_render', 'patch_adminbar_titles' );
+add_action( 'wp_head', 					  'patch_admin_bar_styles' );
 
 // filters
 add_filter( 'show_admin_bar',             'patch_admin_bar_permissions' );
@@ -19,25 +19,24 @@ add_filter( 'gettext',                    'patch_replace_howdy', 10, 3 );
 add_filter( 'admin_footer_text',          'patch_admin_footer' );
 add_filter( 'screen_options_show_screen', 'patch_remove_screen_options' );
 
-// Modify the admin bar left label
-
-function custom_adminbar_titles( ) {
-	if(is_admin()){ 
-		$title = "Home";
-	}
-	else{
-		$title = "Admin Area";
-	}
-    global $wp_admin_bar;
-        $wp_admin_bar->add_menu( array(
-                'id'    => 'site-name',
-                'title' => $title,
-            )
-        );
+/**
+ * Modify the admin bar left label
+ */
+function patch_adminbar_titles()
+{
+	$GLOBALS['wp_admin_bar']->add_menu( array(
+		'id'    => 'site-name',
+		'title' => ( is_admin() ? "Home" : "Admin Area" ),
+	) );
 }
 
-function style_admin_bar() { // changes admin area left icon to odometer
-	if ( is_user_logged_in() ){
+/**
+ * Change admin area left icon to odometer
+ */
+function patch_admin_bar_styles()
+{
+	if ( is_user_logged_in() )
+	{
 	    echo "<style type='text/css'>
 	    #wpadminbar #wp-admin-bar-site-name>.ab-item:before {
 			content: '\\f226';
@@ -46,8 +45,6 @@ function style_admin_bar() { // changes admin area left icon to odometer
 		</style>";
 	}
 }
-
-
 
 /**
  * Check for dependencies

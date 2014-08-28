@@ -2,6 +2,23 @@
 
 Stylesheet: Typography
 
+Some Guidelines:
+
+- Do yourself a favor, and only use these target pixel sizes: 5, 7, 9, 12, 16, 21, 28, 37, 50, 67, 83
+	These sizes are based off of the proportion of 3:4
+	
+	If one of these sizes isn't quite achieving the effect you want, there are tons of other things you 
+	can do: use bold or italics, use all-caps (for titling and metadata), or use a different color. Stick 
+	with these sizes, and worry about something else.
+
+- Never More Than Fifteen Words on a Line
+
+http://webdesign.tutsplus.com/articles/9-quick-wins-for-halfway-decent-design--cms-19444
+
+- Pay attention to the Vertical Rhythm
+
+http://webdesign.tutsplus.com/articles/improving-layout-with-vertical-rhythm--webdesign-14070
+
 ******************************************************************/
 
 
@@ -11,7 +28,7 @@ FONT BASE
 
 body {
 	font-size: 100%;
-	line-height: 1.5;
+	line-height: 1.5;				// 24px
 	color: $text_color;
 	font-family: $sans_serif;
 }
@@ -23,6 +40,7 @@ H1, H2, H3, H4, H5 STYLES
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
 	clear: both;
+	margin: 0 0 $margin;
 
 	a, a:visited {
 		text-decoration: none;
@@ -30,33 +48,33 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
 }
 
 h1, .h1 {
-	font-size: 2.5em;				// 40px
-	line-height: 1.5em;				// 60px
-	margin: 0.4em 0;				// 16px
+	font-size: 2.3125rem;			// 37px
+	line-height: 1.243243243;		// 48px
 }
 
 h2, .h2 {
-	font-size: 1.75em;				// 28px
-	line-height: 1.5em;				// 42px
-	margin: 0.571428571em 0;		// 16px
+	font-size: 1.75rem;				// 28px
+	line-height: 1.5;				// 42px
+	margin-bottom: 1.071428571rem;	// 30px
 }
 
 h3, .h3 {
-	font-size: 1.5em;				// 24px
-	margin: 0.666666667em 0;		// 16px
+	font-size: 1.3125rem;			// 21px
+	line-height: 1.5;				// 31.5px
+	margin-bottom: .785714286em;	// 16.5px
 }
 
 h4, .h4 {
-	font-size: 1.25em;				// 20px
+	font-size: 1rem;				// 16px
+	line-height: 1.5;				// 24px
 	font-weight: 700;
-	margin: 0.8em 0;				// 16px
 }
 
 h5, .h5 {
-	font-size: 1.125em;				// 18px
+	font-size: 1rem;				// 16px
+	line-height: 1.5;				// 24px
 	text-transform: uppercase;
 	letter-spacing: 2px;
-	margin: 0.888888889em 0;		// 16px
 }
 
 /******************************************************************
@@ -92,7 +110,7 @@ BASE ELEMENTS
 ******************************************************************/
 
 p {
-	margin: 0 0 $default_margin;
+	margin: 0 0 $margin;
 }
 
 dfn, cite, em, i {
@@ -100,16 +118,16 @@ dfn, cite, em, i {
 }
 
 blockquote {
-	margin: 0 0 $default_margin 1em;
+	margin: 0 0 $margin 1em;
 	padding: 0 0 0 1em;
-	border-left: 3px solid $link_color;
+	border-left: 3px solid $text_color;
 	font-style: italic;
 	color: $gray;
 	&:before {}
 }
 
 address {
-	margin: 0 0 $default_margin;
+	margin: 0 0 $margin;
 }
 
 pre {
@@ -117,7 +135,7 @@ pre {
 	color: $gray_light;
 	font-family: "Courier 10 Pitch", Courier, monospace;
 	font-size: 0.9em;
-	margin: 0 0 $default_margin;
+	margin: 0 0 $margin;
 	max-width: 100%;
 	padding: 1em;
 	overflow: auto;
@@ -139,8 +157,12 @@ ENTRY CONTENT
 
 .entry-content {
 
+	a {
+		text-decoration: underline;
+	}
+
 	ul, ol {
-		margin: 0 0 $default_margin 2em;
+		margin: 0 0 $margin $margin;
 	}
 
 	ul {
@@ -164,11 +186,11 @@ ENTRY CONTENT
 	}
 
 	dd {
-		margin: 0 1em $default_margin;
+		margin: 0 1em $margin;
 	}
 
 	table {
-		margin: 0 0 $default_margin;
+		margin: 0 0 $margin;
 		width: 100%;
 	}
 

@@ -1,0 +1,23 @@
+#searchform {
+	position: relative;
+
+	input[type="text"] {
+		padding-right: 2.5em;
+	}
+
+	button {
+		background: none;
+		border: none;
+		color: $link_color;
+		font-size: 1.5em;
+		margin: 0;
+		padding: 0;
+		position: absolute;
+		top: 0.3em;
+		right: 0.5em;
+
+		&:hover {
+			color: $link_hover;
+		}
+	}
+}

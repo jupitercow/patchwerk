@@ -1,6 +1,6 @@
-<div class="sidebar goldsmall" role="complementary">
+<div id="sidebar" role="complementary">
 
-	<div class="entry-content">
+	<div class="side-content">
 
 		<h2>Sidebar</h2>
 

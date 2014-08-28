@@ -1,10 +1,10 @@
 <?php get_header(); ?>
 
-<div id="content">
+<div id="content" class="content-sidebar">
 
 	<div class="wrap">
 
-		<div id="main" class="goldlarge" role="main">
+		<div id="main" role="main">
 
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 

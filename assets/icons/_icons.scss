@@ -1,0 +1,17 @@
+.svg-icon {
+    font-size: 10px;
+}
+
+.svg-icon:before {
+    content:' ';
+    vertical-align:middle;
+    display: inline-block;
+    background-image: url("../icons/icons.svg");
+    background-repeat: no-repeat;
+    background-size: 0em 0em;
+}
+
+.no-svg .svg-icon:before {
+    background-image: url("../icons/icons.png");
+}
+

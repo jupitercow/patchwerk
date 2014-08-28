@@ -1,6 +1,6 @@
 var environment = 'development', // 'production'
 	gulp = require('gulp'),
-	sass = require('gulp-sass'),
+	sass = require('gulp-ruby-sass'),
 	autoprefixer = require('gulp-autoprefixer'),
 	minifycss = require('gulp-minify-css'),
 	gulpif = require('gulp-if'),
@@ -12,6 +12,11 @@ var environment = 'development', // 'production'
 	notify = require('gulp-notify'),
 	clean = require('gulp-clean'),
 	cache = require('gulp-cache'),
+	imagemin = require('gulp-imagemin'),
+	//webp = require('gulp-webp'),
+	svgSprite = require('gulp-svg-sprites'),
+	filter = require('gulp-filter'),
+	svg2png = require('gulp-svg2png'),
 	compression = ( 'production' === environment ? 'compressed' : 'expanded' );
 
 function base_style( filename, message )
@@ -24,7 +29,9 @@ function base_style( filename, message )
 		.pipe( notify({ message: message }) );
 }
 
-// CSS
+/**
+ * CSS
+ */
 gulp.task('styles', function() {
 	return base_style('scss/style.scss', 'Styles task complete');
 });
@@ -43,9 +50,51 @@ gulp.task('styles-ie', function() {
 		.pipe( notify({ message: 'IE styles task complete' }) );
 });
 
-// JS
+/**
+ * IMAGES
+ */
+gulp.task('images', function () {
+	return gulp.src('img/src/*')
+		.pipe( imagemin({
+			progressive: true,
+			svgoPlugins: [{removeViewBox: false}],
+		}) )
+		.pipe( gulp.dest('img') )
+		//.pipe( webp() )
+		//.pipe( gulp.dest('img') )
+		.pipe( notify({ message: 'Image task complete' }) );
+});
+
+/**
+ * SVG ICONS
+ */
+gulp.task('icons', function () {
+	return svg = gulp.src('icons/src/*')
+		.pipe( svgSprite({
+			common: "svg-icon",
+			svgId: "svg-%f",
+			cssFile: "_icons.scss",
+			svgPath: "../icons/%f",
+			pngPath: "../icons/%f",
+			svg: {
+				sprite: "icons.svg"
+			},
+			preview: {
+				sprite: "preview.html"
+			}
+		}) )
+		.pipe( gulp.dest("icons") )
+		.pipe( filter("**/*.svg") )
+		.pipe( svg2png() )
+		.pipe( gulp.dest("icons") );
+});
+
+/**
+ * JS
+ */
 gulp.task('scripts', function() {
 	return gulp.src([
+			'js/src/polyfills/*.js',
 			'js/src/libs/*.js',
 			'js/src/**/*.js',
 		])
@@ -57,12 +106,18 @@ gulp.task('scripts', function() {
 		.pipe( notify({ message: 'Scripts task complete' }) );
 });
 
-// default: gulp
+/**
+ * default: gulp
+ */
 gulp.task('default', function() {
-	gulp.start('styles', 'styles-login', 'styles-editor', 'styles-ie', 'scripts');
+	gulp.start('images', 'icons', 'styles', 'styles-login', 'styles-editor', 'styles-ie', 'scripts');
 });
 
-// gulp watch (does not compile styles-ie, styles-login, or styles-editor)
+/**
+ * gulp watch
+ *
+ * does not compile styles-ie, styles-login, or styles-editor, doesn't process images or icons
+ */
 gulp.task('watch', function() {
 	gulp.watch('scss/**/*.scss', ['styles']);
 	gulp.watch('js/**/*.js', ['scripts']);
