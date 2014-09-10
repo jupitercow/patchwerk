@@ -1,6 +1,6 @@
 var environment = 'development', // 'production'
 	gulp = require('gulp'),
-	sass = require('gulp-ruby-sass'),
+	sass = require('gulp-sass'),
 	autoprefixer = require('gulp-autoprefixer'),
 	minifycss = require('gulp-minify-css'),
 	gulpif = require('gulp-if'),
@@ -106,12 +106,24 @@ gulp.task('scripts', function() {
 		.pipe( notify({ message: 'Scripts task complete' }) );
 });
 
+
 /**
  * default: gulp
  */
 gulp.task('default', function() {
 	gulp.start('images', 'icons', 'styles', 'styles-login', 'styles-editor', 'styles-ie', 'scripts');
 });
+
+
+/**
+ * gulp images
+ *
+ * only processes images and icons, and then updates necessary styles
+ */
+gulp.task('img', function() {
+	gulp.start('images', 'icons', 'styles', 'styles-editor', 'styles-ie' );
+});
+
 
 /**
  * gulp watch

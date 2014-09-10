@@ -39,13 +39,10 @@ REUSABLE ITEMS
 /*********************
 BUTTONS
 *********************/
-.search-submit,
-.form-submit input,
-.button,
-.btn {
+.search-submit, .form-submit input, .button, .btn {
   border: none;
   border-radius: 4px;
-  color: white;
+  color: #fff;
   cursor: pointer;
   display: inline-block;
   font-family: "Gotham", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -57,46 +54,20 @@ BUTTONS
   padding: 0 1rem;
   position: relative;
   text-decoration: none;
-  transition: background-color 0.2s ease-in-out;
-}
-.search-submit:hover,
-.form-submit input:hover,
-.button:hover,
-.btn:hover, .search-submit:focus,
-.form-submit input:focus,
-.button:focus,
-.btn:focus {
-  color: white;
-  text-decoration: none;
-}
-.search-submit:active,
-.form-submit input:active,
-.button:active,
-.btn:active {
-  top: 1px;
-}
+  -webkit-transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out; }
+  .search-submit:hover, .form-submit input:hover, .button:hover, .btn:hover, .search-submit:focus, .form-submit input:focus, .button:focus, .btn:focus {
+    color: #fff;
+    text-decoration: none; }
+  .search-submit:active, .form-submit input:active, .button:active, .btn:active {
+    top: 1px; }
 
-.search-submit,
-.form-submit input,
-.button,
-.btn {
-  background-color: red;
-}
-.search-submit:hover, .search-submit:focus,
-.form-submit input:hover,
-.form-submit input:focus,
-.button:hover,
-.button:focus,
-.btn:hover,
-.btn:focus {
-  background-color: #cc0000;
-}
-.search-submit:active,
-.form-submit input:active,
-.button:active,
-.btn:active {
-  background-color: #e60000;
-}
+.search-submit, .form-submit input, .button, .btn {
+  background-color: red; }
+  .search-submit:hover, .search-submit:focus, .form-submit input:hover, .form-submit input:focus, .button:hover, .button:focus, .btn:hover, .btn:focus {
+    background-color: #cc0000; }
+  .search-submit:active, .form-submit input:active, .button:active, .btn:active {
+    background-color: #e60000; }
 
 /*********************
 BREAKPOINTS
@@ -113,8 +84,7 @@ see header.php for an example usage
 .screen-reader-text {
   left: -9999em !important;
   position: absolute !important;
-  top: -9999em !important;
-}
+  top: -9999em !important; }
 
 /*********************
 FONT FACE
@@ -132,11 +102,11 @@ FONT FACE
 */
 @font-face {
   font-family: 'patchwerk';
-  src: url("../fonts/patchwerk.eot?-46w803");
-  src: url("../fonts/patchwerk.eot?#iefix-46w803") format("embedded-opentype"), url("../fonts/patchwerk.woff?-46w803") format("woff"), url("../fonts/patchwerk.ttf?-46w803") format("truetype"), url("../fonts/patchwerk.svg?-46w803#patchwerk") format("svg");
+  src: url('../fonts/patchwerk.eot?-46w803');
+  src: url('../fonts/patchwerk.eot?#iefix-46w803') format('embedded-opentype'), url('../fonts/patchwerk.woff?-46w803') format('woff'), url('../fonts/patchwerk.ttf?-46w803') format('truetype'), url('../fonts/patchwerk.svg?-46w803#patchwerk') format('svg');
   font-weight: normal;
-  font-style: normal;
-}
+  font-style: normal; }
+
 [class^="icon-"], [class*=" icon-"] {
   font-family: 'patchwerk';
   speak: none;
@@ -147,68 +117,52 @@ FONT FACE
   line-height: 1;
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  -moz-osx-font-smoothing: grayscale; }
 
 .icon-git:before {
-  content: "\e609";
-}
+  content: "\e609"; }
 
 .icon-phone:before {
-  content: "\50";
-}
+  content: "\50"; }
 
 .icon-menu:before {
-  content: "\e601";
-}
+  content: "\e601"; }
 
 .icon-close:before {
-  content: "\e606";
-}
+  content: "\e606"; }
 
 .icon-googleplus:before {
-  content: "\e604";
-}
+  content: "\e604"; }
 
 .icon-facebook:before {
-  content: "\e605";
-}
+  content: "\e605"; }
 
 .icon-twitter:before {
-  content: "\e60a";
-}
+  content: "\e60a"; }
 
 .icon-feed:before {
-  content: "\e607";
-}
+  content: "\e607"; }
 
 .icon-wordpress:before {
-  content: "\e600";
-}
+  content: "\e600"; }
 
 .icon-linkedin:before {
-  content: "\e60b";
-}
+  content: "\e60b"; }
 
 .icon-pinterest:before {
-  content: "\e60c";
-}
+  content: "\e60c"; }
 
 .icon-mail:before {
-  content: "\e608";
-}
+  content: "\e608"; }
 
 .icon-share:before {
-  content: "\e602";
-}
+  content: "\e602"; }
 
 .icon-search:before {
-  content: "\e603";
-}
+  content: "\e603"; }
 
 .svg-icon {
-  font-size: 10px;
-}
+  font-size: 10px; }
 
 .svg-icon:before {
   content: ' ';
@@ -216,12 +170,10 @@ FONT FACE
   display: inline-block;
   background-image: url("../icons/icons.svg");
   background-repeat: no-repeat;
-  background-size: 0em 0em;
-}
+  background-size: 0em 0em; }
 
 .no-svg .svg-icon:before {
-  background-image: url("../icons/icons.png");
-}
+  background-image: url("../icons/icons.png"); }
 
 /******************************************************************
 
@@ -251,50 +203,42 @@ FONT BASE
 body {
   font-size: 100%;
   line-height: 1.5;
-  color: #333333;
-  font-family: "Gotham", "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
+  color: #333;
+  font-family: "Gotham", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 /******************************************************************
 H1, H2, H3, H4, H5 STYLES
 ******************************************************************/
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
   clear: both;
-  margin: 0 0 1.5rem;
-}
-h1 a, h1 a:visited, .h1 a, .h1 a:visited, h2 a, h2 a:visited, .h2 a, .h2 a:visited, h3 a, h3 a:visited, .h3 a, .h3 a:visited, h4 a, h4 a:visited, .h4 a, .h4 a:visited, h5 a, h5 a:visited, .h5 a, .h5 a:visited {
-  text-decoration: none;
-}
+  margin: 0 0 1.5rem; }
+  h1 a, h1 a:visited, .h1 a, .h1 a:visited, h2 a, h2 a:visited, .h2 a, .h2 a:visited, h3 a, h3 a:visited, .h3 a, .h3 a:visited, h4 a, h4 a:visited, .h4 a, .h4 a:visited, h5 a, h5 a:visited, .h5 a, .h5 a:visited {
+    text-decoration: none; }
 
 h1, .h1 {
   font-size: 2.3125rem;
-  line-height: 1.243243243;
-}
+  line-height: 1.24324; }
 
 h2, .h2 {
   font-size: 1.75rem;
   line-height: 1.5;
-  margin-bottom: 1.071428571rem;
-}
+  margin-bottom: 1.07143rem; }
 
 h3, .h3 {
   font-size: 1.3125rem;
   line-height: 1.5;
-  margin-bottom: .785714286em;
-}
+  margin-bottom: 0.78571em; }
 
 h4, .h4 {
   font-size: 1rem;
   line-height: 1.5;
-  font-weight: 700;
-}
+  font-weight: 700; }
 
 h5, .h5 {
   font-size: 1rem;
   line-height: 1.5;
   text-transform: uppercase;
-  letter-spacing: 2px;
-}
+  letter-spacing: 2px; }
 
 /******************************************************************
 PARAGRAPH PAGE BREAKS
@@ -328,77 +272,61 @@ p {
 BASE ELEMENTS
 ******************************************************************/
 p {
-  margin: 0 0 1.5rem;
-}
+  margin: 0 0 1.5rem; }
 
 dfn, cite, em, i {
-  font-style: italic;
-}
+  font-style: italic; }
 
 blockquote {
   margin: 0 0 1.5rem 1em;
   padding: 0 0 0 1em;
-  border-left: 3px solid #333333;
+  border-left: 3px solid #333;
   font-style: italic;
-  color: #999999;
-}
+  color: #999; }
 
 address {
-  margin: 0 0 1.5rem;
-}
+  margin: 0 0 1.5rem; }
 
 pre {
-  background: #222222;
-  color: #eef0f4;
+  background: #222;
+  color: #EEF0F4;
   font-family: "Courier 10 Pitch", Courier, monospace;
   font-size: 0.9em;
   margin: 0 0 1.5rem;
   max-width: 100%;
   padding: 1em;
-  overflow: auto;
-}
+  overflow: auto; }
 
 abbr, acronym {
-  cursor: help;
-}
+  cursor: help; }
 
 mark, ins {
   background: #fff9c0;
-  text-decoration: none;
-}
+  text-decoration: none; }
 
 /******************************************************************
 ENTRY CONTENT
 ******************************************************************/
 .entry-content a {
-  text-decoration: underline;
-}
+  text-decoration: underline; }
 .entry-content ul, .entry-content ol {
-  margin: 0 0 1.5rem 1.5rem;
-}
+  margin: 0 0 1.5rem 1.5rem; }
 .entry-content ul {
-  list-style: disc;
-}
+  list-style: disc; }
 .entry-content ol {
-  list-style: decimal;
-}
+  list-style: decimal; }
 .entry-content li > ul, .entry-content li > ol {
   margin-bottom: 0;
-  margin-left: 1em;
-}
+  margin-left: 1em; }
 .entry-content dt {
-  font-weight: bold;
-}
+  font-weight: bold; }
 .entry-content dd {
-  margin: 0 1em 1.5rem;
-}
+  margin: 0 1em 1.5rem; }
 .entry-content table {
   margin: 0 0 1.5rem;
-  width: 100%;
-}
+  width: 100%; }
 .entry-content th {
-  font-weight: bold;
-}
+  font-weight: bold; }
 
 /* end .entry-content */
 /******************************************************************
@@ -415,119 +343,93 @@ ENTRY CONTENT IMAGES
 .entry-content img {
   height: auto;
   margin: 0 0 1.5rem;
-  max-width: 100%;
-}
+  max-width: 100%; }
 
 /* end .entry-content */
-.size-auto,
-.size-full,
-.size-large,
-.size-medium,
-.size-thumbnail {
+.size-auto, .size-full, .size-large, .size-medium, .size-thumbnail {
   max-width: 100%;
-  height: auto;
-}
+  height: auto; }
 
 .alignleft, img.alignleft, figure.alignleft, dl.alignleft {
   display: inline;
   float: left;
   margin-left: 0em;
-  margin-right: 1.5rem;
-}
+  margin-right: 1.5rem; }
 
 .alignright, img.alignright, figure.alignright, dl.alignright {
   display: inline;
   float: right;
   margin-left: 1.5rem;
-  margin-right: 0em;
-}
+  margin-right: 0em; }
 
 .aligncenter, img.aligncenter, figure.aligncenter, dl.aligncenter {
   clear: both;
   display: block;
   margin-right: auto;
-  margin-left: auto;
-}
+  margin-left: auto; }
 
 .alignnone, img.alignnone, figure.alignnone, dl.alignnone, .alignnone img {
   margin-left: 0;
   margin-right: 0;
   width: 100% !important;
-  height: auto;
-}
+  height: auto; }
 
 /******************************************************************
 CAPTIONS
 ******************************************************************/
 .wp-caption {
   max-width: 100%;
-  background: #eef0f4;
+  background: #EEF0F4;
   font-size: 0.75em;
-  padding: 0.333333333em 0;
+  padding: 0.33333em 0;
   text-align: center;
-  /* images inside wp-caption */
-}
-.wp-caption.alignleft {
-  margin-right: 1.5rem;
-}
-.wp-caption.alignright {
-  margin-left: 1.5rem;
-}
-.wp-caption.aligncenter {
-  margin-right: auto;
-  margin-left: auto;
-}
-.wp-caption img {
-  max-width: 100%;
-  margin-bottom: 0;
-  width: 100%;
-}
-.wp-caption p.wp-caption-text {
-  font-size: 0.9em;
-  margin: 4px 0 7px;
-  text-align: center;
-}
+  /* images inside wp-caption */ }
+  .wp-caption.alignleft {
+    margin-right: 1.5rem; }
+  .wp-caption.alignright {
+    margin-left: 1.5rem; }
+  .wp-caption.aligncenter {
+    margin-right: auto;
+    margin-left: auto; }
+  .wp-caption img {
+    max-width: 100%;
+    margin-bottom: 0;
+    width: 100%; }
+  .wp-caption p.wp-caption-text {
+    font-size: 0.9em;
+    margin: 4px 0 7px;
+    text-align: center; }
 
 /******************************************************************
 HTML5 IMAGE GALLERY
 ******************************************************************/
 .gallery {
-  text-align: justify;
-}
-.gallery .gallery-item {
-  margin: 0;
-  width: 50%;
-  display: inline-block;
-  vertical-align: top;
-  padding: .5em;
-}
-.gallery img {
-  display: block;
-  transform: translateZ(0);
-}
-.gallery .gallery-caption {
-  text-align: left;
-  padding: .25em 0;
-}
-.gallery:after {
-  content: '';
-  display: inline-block;
-  width: 100%;
-}
-.gallery .gallery-item {
-  width: 25%;
-}
-.gallery img:hover {
-  opacity: .7;
-  transition: opacity .2s ease;
-}
+  text-align: justify; }
+  .gallery .gallery-item {
+    margin: 0;
+    width: 50%;
+    display: inline-block;
+    vertical-align: top;
+    padding: 0.5em; }
+  .gallery img {
+    display: block;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0); }
+  .gallery .gallery-caption {
+    text-align: left;
+    padding: 0.25em 0; }
+  .gallery:after {
+    content: '';
+    display: inline-block;
+    width: 100%; }
+  .gallery .gallery-item {
+    width: 25%; }
+  .gallery img:hover {
+    opacity: 0.7;
+    -webkit-transition: opacity 0.2s ease;
+    transition: opacity 0.2s ease; }
 
 /******************************************************************
-
-Stylesheet: Grid
-
-******************************************************************/
-*********************************************
 
 Stylesheet: Grid
 

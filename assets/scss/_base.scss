@@ -70,9 +70,12 @@ POSTS & CONTENT STYLES
 	padding-top: $margin;
 }
 
-#main {
-	@include grid_col(large);
-	margin-bottom: 0;
+@include breakpoint(medium)
+{
+	#main {
+		@include grid_col(large);
+		margin-bottom: 0;
+	}
 }
 
 .hentry {}

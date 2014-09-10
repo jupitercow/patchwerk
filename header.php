@@ -38,11 +38,12 @@
 
 			<div id="inner-header" class="wrap cf">
 
-				<div id="logo">
+				<h1 id="logo">
 					<a href="<?php echo home_url(); ?>" title="Home">
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.png" alt="<?php echo get_option('blogname'); ?>" />
+						<?php /**/ echo get_option('blogname'); /**/ ?>
+						<?php /** / ?><img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.png" alt="<?php echo get_option('blogname'); ?>" /><?php /**/ ?>
 					</a>
-				</div>
+				</h1>
 
 				<span id="mobile-nav">
 					<span class="icon-menu" aria-hidden="true"></span>

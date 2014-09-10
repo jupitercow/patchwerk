@@ -5,12 +5,18 @@ Stylesheet: Navigation
 ******************************************************************/
 
 #sidebar {
-	@include grid_col(small);
+	margin-bottom: $margin;
+
+	@include breakpoint(medium)
+	{
+		@include grid_col(small);
+	}
 
 	.side-content {
+		@extend .cf;
 		background: $black;
 		color: $white;
-		padding: $margin;
+		padding: $margin $margin 0;
 	}
 
 	h4 {
