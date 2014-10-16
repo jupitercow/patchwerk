@@ -39,7 +39,7 @@ REUSABLE ITEMS
 /*********************
 BUTTONS
 *********************/
-.search-submit, .form-submit input, .button, .btn {
+#wp-submit, .search-submit, .form-submit input, .button, .btn {
   border: none;
   border-radius: 4px;
   color: #fff;
@@ -56,17 +56,17 @@ BUTTONS
   text-decoration: none;
   -webkit-transition: background-color 0.2s ease-in-out;
   transition: background-color 0.2s ease-in-out; }
-  .search-submit:hover, .form-submit input:hover, .button:hover, .btn:hover, .search-submit:focus, .form-submit input:focus, .button:focus, .btn:focus {
+  #wp-submit:hover, .search-submit:hover, .form-submit input:hover, .button:hover, .btn:hover, #wp-submit:focus, .search-submit:focus, .form-submit input:focus, .button:focus, .btn:focus {
     color: #fff;
     text-decoration: none; }
-  .search-submit:active, .form-submit input:active, .button:active, .btn:active {
+  #wp-submit:active, .search-submit:active, .form-submit input:active, .button:active, .btn:active {
     top: 1px; }
 
-.search-submit, .form-submit input, .button, .btn {
+#wp-submit, .search-submit, .form-submit input, .button, .btn {
   background-color: red; }
-  .search-submit:hover, .search-submit:focus, .form-submit input:hover, .form-submit input:focus, .button:hover, .button:focus, .btn:hover, .btn:focus {
+  #wp-submit:hover, #wp-submit:focus, .search-submit:hover, .search-submit:focus, .form-submit input:hover, .form-submit input:focus, .button:hover, .button:focus, .btn:hover, .btn:focus {
     background-color: #cc0000; }
-  .search-submit:active, .form-submit input:active, .button:active, .btn:active {
+  #wp-submit:active, .search-submit:active, .form-submit input:active, .button:active, .btn:active {
     background-color: #e60000; }
 
 /*********************
@@ -102,8 +102,8 @@ FONT FACE
 */
 @font-face {
   font-family: 'patchwerk';
-  src: url('../fonts/patchwerk.eot?-46w803');
-  src: url('../fonts/patchwerk.eot?#iefix-46w803') format('embedded-opentype'), url('../fonts/patchwerk.woff?-46w803') format('woff'), url('../fonts/patchwerk.ttf?-46w803') format('truetype'), url('../fonts/patchwerk.svg?-46w803#patchwerk') format('svg');
+  src: url('../fonts/patchwerk/patchwerk.eot?-46w803');
+  src: url('../fonts/patchwerk/patchwerk.eot?#iefix-46w803') format('embedded-opentype'), url('../fonts/patchwerk/patchwerk.woff?-46w803') format('woff'), url('../fonts/patchwerk/patchwerk.ttf?-46w803') format('truetype'), url('../fonts/patchwerk/patchwerk.svg?-46w803#patchwerk') format('svg');
   font-weight: normal;
   font-style: normal; }
 

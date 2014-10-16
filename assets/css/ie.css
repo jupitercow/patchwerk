@@ -371,12 +371,12 @@ nav ul, nav ol {
   white-space: nowrap;
   overflow: hidden; }
 
-.clearfix, .cf, .comment-respond, .wrap {
+.clearfix, .cf, .comment-respond, #sidebar .side-content, .wrap, .grid_container {
   zoom: 1; }
-  .clearfix:before, .clearfix:after, .cf:before, .comment-respond:before, .wrap:before, .cf:after, .comment-respond:after, .wrap:after {
+  .clearfix:before, .clearfix:after, .cf:before, .comment-respond:before, #sidebar .side-content:before, .wrap:before, .grid_container:before, .cf:after, .comment-respond:after, #sidebar .side-content:after, .wrap:after, .grid_container:after {
     content: "";
     display: table; }
-  .clearfix:after, .cf:after, .comment-respond:after, .wrap:after {
+  .clearfix:after, .cf:after, .comment-respond:after, #sidebar .side-content:after, .wrap:after, .grid_container:after {
     clear: both; }
 
 /*
@@ -418,7 +418,7 @@ REUSABLE ITEMS
 /*********************
 BUTTONS
 *********************/
-.search-submit, .form-submit input, .button, .btn, .comment-reply-link, #submit {
+#wp-submit, .search-submit, .form-submit input, .button, .btn, .comment-reply-link, #submit {
   border: none;
   border-radius: 4px;
   color: #fff;
@@ -434,17 +434,17 @@ BUTTONS
   position: relative;
   text-decoration: none;
   transition: background-color 0.2s ease-in-out; }
-  .search-submit:hover, .form-submit input:hover, .button:hover, .btn:hover, .comment-reply-link:hover, #submit:hover, .search-submit:focus, .form-submit input:focus, .button:focus, .btn:focus, .comment-reply-link:focus, #submit:focus {
+  #wp-submit:hover, .search-submit:hover, .form-submit input:hover, .button:hover, .btn:hover, .comment-reply-link:hover, #submit:hover, #wp-submit:focus, .search-submit:focus, .form-submit input:focus, .button:focus, .btn:focus, .comment-reply-link:focus, #submit:focus {
     color: #fff;
     text-decoration: none; }
-  .search-submit:active, .form-submit input:active, .button:active, .btn:active, .comment-reply-link:active, #submit:active {
+  #wp-submit:active, .search-submit:active, .form-submit input:active, .button:active, .btn:active, .comment-reply-link:active, #submit:active {
     top: 1px; }
 
-.search-submit, .form-submit input, .button, .btn {
+#wp-submit, .search-submit, .form-submit input, .button, .btn {
   background-color: red; }
-  .search-submit:hover, .search-submit:focus, .form-submit input:hover, .form-submit input:focus, .button:hover, .button:focus, .btn:hover, .btn:focus {
+  #wp-submit:hover, #wp-submit:focus, .search-submit:hover, .search-submit:focus, .form-submit input:hover, .form-submit input:focus, .button:hover, .button:focus, .btn:hover, .btn:focus {
     background-color: #cc0000; }
-  .search-submit:active, .form-submit input:active, .button:active, .btn:active {
+  #wp-submit:active, .search-submit:active, .form-submit input:active, .button:active, .btn:active {
     background-color: #e60000; }
 
 /*********************
@@ -487,8 +487,8 @@ FONT FACE
 */
 @font-face {
   font-family: 'patchwerk';
-  src: url('../fonts/patchwerk.eot?-46w803');
-  src: url('../fonts/patchwerk.eot?#iefix-46w803') format('embedded-opentype'), url('../fonts/patchwerk.woff?-46w803') format('woff'), url('../fonts/patchwerk.ttf?-46w803') format('truetype'), url('../fonts/patchwerk.svg?-46w803#patchwerk') format('svg');
+  src: url('../fonts/patchwerk/patchwerk.eot?-46w803');
+  src: url('../fonts/patchwerk/patchwerk.eot?#iefix-46w803') format('embedded-opentype'), url('../fonts/patchwerk/patchwerk.woff?-46w803') format('woff'), url('../fonts/patchwerk/patchwerk.ttf?-46w803') format('truetype'), url('../fonts/patchwerk/patchwerk.svg?-46w803#patchwerk') format('svg');
   font-weight: normal;
   font-style: normal; }
 
@@ -1366,6 +1366,94 @@ POSTS & CONTENT STYLES
   margin: 0; }
 
 
+/*********************
+GRID EXAMPLES
+*********************/
+body.home #main {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 100%; }
+
+.grid_container {
+  background: #ffd100;
+  margin-bottom: 1em; }
+  .grid_container > div > div {
+    background: #222;
+    min-height: 25px;
+    outline: 1px solid yellow; }
+
+#grid_col_2 > div {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 50%; }
+
+#grid_col_2_12 > div {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 8.33333%; }
+
+#grid_col_3 > div {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 33.33333%; }
+
+#grid_col_3_12 > div:first-child {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 50%;
+  margin-left: 100%;
+  margin-right: 100%; }
+#grid_col_3_12 > div:nth-child(2) {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 8.33333%; }
+
+#grid_col_4 > div {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 25%; }
+
+#grid_col_6 > div {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 16.66667%; }
+
+#grid_col_12 > div {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 8.33333%; }
+
+#flex_grid_auto {
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row wrap; }
+  #flex_grid_auto > * {
+    display: flex;
+    flex-basis: 100%;
+    flex-direction: column;
+    flex-grow: 0;
+    margin: 0 0 1.5rem;
+    flex-basis: 0;
+    flex-grow: 1;
+    margin-bottom: 1.5rem; }
+    #flex_grid_auto > *:nth-child(n) {
+      margin-left: 0.75rem;
+      margin-right: 0.75rem; }
+    #flex_grid_auto > *:first-child {
+      margin-left: 0; }
+    #flex_grid_auto > *:last-child {
+      margin-right: 0; }
+
+/**/
 /*********************
 PRINT STYLESHEET
 *********************/

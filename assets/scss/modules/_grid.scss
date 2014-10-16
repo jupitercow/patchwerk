@@ -4,6 +4,16 @@ Stylesheet: Grid
 
 ******************************************************************/
 
+/**
+ * Add a classic grid column. This version does not use flexbox and is good for most uses
+ *
+ * @param int/string	$cols	The number of columns you want this exact column to span
+ * @param int 			$total	The total number of columns in this row
+ * @param int/string	$left	The number of columns you would like to add to the left of this column
+ *                                    OR 'first' will designate this column as first
+ *                                    OR 'last' will designate this column as last
+ * @param int/string	$right	The number of columns you would like to add to the right of this column
+ */
 @mixin grid_col( $cols:all, $total:12, $left:0, $right:0 ) {
 	float: left;
 	margin: 0 0 $margin;
@@ -35,6 +45,8 @@ Stylesheet: Grid
 	@else {
 		width: percentage($cols/$total);
 		@if "first" == $left {
+			clear: both;
+			float: left;
 			margin-right: auto;
 		}
 		@else if "last" != $left and 0 < $left {
@@ -42,6 +54,7 @@ Stylesheet: Grid
 		}
 
 		@if "last" == $right or "last" == $left {
+			float: right;
 			margin-left: auto;
 		}
 		@else if "first" != $right and 0 < $right {
@@ -141,7 +154,7 @@ Stylesheet: Grid
 		}
 		@else if $cols
 		{
-			flex-basis: calc(#{percentage(1/$cols)} - #{$gutter});
+			flex-basis: calc(#{percentage(1/$cols)} - #{$gutter*2});
 			flex-grow: 1;
 			margin-bottom: $margin;
 			&:nth-child(n) {
@@ -149,12 +162,12 @@ Stylesheet: Grid
 				margin-right: $gutter;
 			}
 			&:nth-child(#{$cols}n+#{$cols}) {
-				margin-left: auto;
+				margin-left: $gutter;
 				margin-right: 0;
 			}
 			&:nth-child(#{$cols}n+1) {
 				margin-left: 0;
-				margin-right: auto;
+				margin-right: $gutter;
 			}
 			&:last-child {
 				margin-right: 0;

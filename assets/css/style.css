@@ -368,12 +368,12 @@ nav ul, nav ol {
   white-space: nowrap;
   overflow: hidden; }
 
-.clearfix, .cf, .comment-respond, #sidebar .side-content, .wrap {
+.clearfix, .cf, .comment-respond, #sidebar .side-content, .wrap, .grid_container {
   zoom: 1; }
-  .clearfix:before, .clearfix:after, .cf:before, .comment-respond:before, #sidebar .side-content:before, .wrap:before, .cf:after, .comment-respond:after, #sidebar .side-content:after, .wrap:after {
+  .clearfix:before, .clearfix:after, .cf:before, .comment-respond:before, #sidebar .side-content:before, .wrap:before, .grid_container:before, .cf:after, .comment-respond:after, #sidebar .side-content:after, .wrap:after, .grid_container:after {
     content: "";
     display: table; }
-  .clearfix:after, .cf:after, .comment-respond:after, #sidebar .side-content:after, .wrap:after {
+  .clearfix:after, .cf:after, .comment-respond:after, #sidebar .side-content:after, .wrap:after, .grid_container:after {
     clear: both; }
 
 /*
@@ -454,6 +454,16 @@ BREAKPOINTS
 Stylesheet: Grid
 
 ******************************************************************/
+/**
+ * Add a classic grid column. This version does not use flexbox and is good for most uses
+ *
+ * @param int/string	$cols	The number of columns you want this exact column to span
+ * @param int 			$total	The total number of columns in this row
+ * @param int/string	$left	The number of columns you would like to add to the left of this column
+ *                                    OR 'first' will designate this column as first
+ *                                    OR 'last' will designate this column as last
+ * @param int/string	$right	The number of columns you would like to add to the right of this column
+ */
 /* import fonts */
 /******************************************************************
 
@@ -1396,6 +1406,190 @@ POSTS & CONTENT STYLES
   margin: 0; }
 
 
+/*********************
+GRID EXAMPLES
+*********************/
+@media screen and (min-width: 48em) {
+  body.home #main {
+    float: left;
+    margin: 0 0 1.5rem;
+    padding: 0 0.75rem;
+    width: 100%; } }
+
+.grid_container {
+  background: #ffd100;
+  margin-bottom: 1em; }
+  .grid_container > div > div {
+    background: #222;
+    min-height: 25px;
+    outline: 1px solid yellow; }
+
+#grid_col_2 > div {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 50%; }
+
+#grid_col_2_12 > div {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 8.33333%; }
+
+#grid_col_2_12_fl > div:first-child {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 8.33333%;
+  clear: both;
+  float: left;
+  margin-right: auto; }
+#grid_col_2_12_fl > div:last-child {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 8.33333%;
+  float: right;
+  margin-left: auto; }
+
+#grid_col_3 > div {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 33.33333%; }
+
+#grid_col_3_12 > div {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 8.33333%; }
+  #grid_col_3_12 > div:first-child {
+    float: left;
+    margin: 0 0 1.5rem;
+    padding: 0 0.75rem;
+    width: 8.33333%;
+    margin-left: 16.66667%;
+    margin-right: 16.66667%; }
+
+#grid_col_4 > div {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 25%; }
+
+#grid_col_6 > div {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 16.66667%; }
+
+#grid_col_12 > div {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 8.33333%; }
+
+#flex_grid_auto {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap; }
+  #flex_grid_auto > * {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-basis: 100%;
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    margin: 0 0 1.5rem;
+    -webkit-flex-basis: -webkit-calc(8.33333% - 1.5rem);
+    -ms-flex-preferred-size: calc(8.33333% - 1.5rem);
+    flex-basis: calc(8.33333% - 1.5rem);
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    margin-bottom: 1.5rem; }
+    #flex_grid_auto > *:nth-child(n) {
+      margin-left: 0.75rem;
+      margin-right: 0.75rem; }
+    #flex_grid_auto > *:nth-child(12n+12) {
+      margin-left: 0.75rem;
+      margin-right: 0; }
+    #flex_grid_auto > *:nth-child(12n+1) {
+      margin-left: 0;
+      margin-right: 0.75rem; }
+    #flex_grid_auto > *:last-child {
+      margin-right: 0; }
+
+#flex_grid_auto_6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap; }
+  #flex_grid_auto_6 > * {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-basis: 100%;
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-flex: 0;
+    -webkit-flex-grow: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    margin: 0 0 1.5rem;
+    -webkit-flex-basis: -webkit-calc(16.66667% - 1.5rem);
+    -ms-flex-preferred-size: calc(16.66667% - 1.5rem);
+    flex-basis: calc(16.66667% - 1.5rem);
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    margin-bottom: 1.5rem; }
+    #flex_grid_auto_6 > *:nth-child(n) {
+      margin-left: 0.75rem;
+      margin-right: 0.75rem; }
+    #flex_grid_auto_6 > *:nth-child(6n+6) {
+      margin-left: 0.75rem;
+      margin-right: 0; }
+    #flex_grid_auto_6 > *:nth-child(6n+1) {
+      margin-left: 0;
+      margin-right: 0.75rem; }
+    #flex_grid_auto_6 > *:last-child {
+      margin-right: 0; }
+
+/**/
 /*********************
 PRINT STYLESHEET
 *********************/

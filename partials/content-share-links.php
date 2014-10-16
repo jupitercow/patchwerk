@@ -51,6 +51,6 @@
 	</a>
 	<?php endforeach; ?>
 
-	<input type="text" class="share-url" value="<?php add_query_arg( 'feature', 'share', the_permalink() ); ?>" />
+	<input type="text" class="share-url" value="<?php add_query_arg( 'feature', 'share', $permalink ); ?>" />
 
 </div>
