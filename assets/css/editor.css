@@ -434,3 +434,13 @@ HTML5 IMAGE GALLERY
 Stylesheet: Grid
 
 ******************************************************************/
+/**
+ * Add a classic grid column. This version does not use flexbox and is good for most uses
+ *
+ * @param int/string	$cols	The number of columns you want this exact column to span
+ * @param int 			$total	The total number of columns in this row
+ * @param int/string	$left	The number of columns you would like to add to the left of this column
+ *                                    OR 'first' will designate this column as first
+ *                                    OR 'last' will designate this column as last
+ * @param int/string	$right	The number of columns you would like to add to the right of this column
+ */

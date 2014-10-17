@@ -34,9 +34,9 @@ textarea,
 	display: block;
 	font-size: 1em;
 	height: 3em;
-	line-height: 2.5em;
+	line-height: 1em;
 	margin-bottom: $margin;
-	padding: 0 0.75em;
+	padding: 0.75em 0.75em !important;
 	transition: background-color 0.24s ease-in-out;
 	vertical-align: middle;
 	width: 100%;

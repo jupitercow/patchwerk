@@ -456,6 +456,16 @@ BREAKPOINTS
 Stylesheet: Grid
 
 ******************************************************************/
+/**
+ * Add a classic grid column. This version does not use flexbox and is good for most uses
+ *
+ * @param int/string	$cols	The number of columns you want this exact column to span
+ * @param int 			$total	The total number of columns in this row
+ * @param int/string	$left	The number of columns you would like to add to the left of this column
+ *                                    OR 'first' will designate this column as first
+ *                                    OR 'last' will designate this column as last
+ * @param int/string	$right	The number of columns you would like to add to the right of this column
+ */
 /* import fonts */
 /******************************************************************
 
@@ -821,9 +831,9 @@ input[type="text"], input[type="password"], input[type="datetime"], input[type="
   display: block;
   font-size: 1em;
   height: 3em;
-  line-height: 2.5em;
+  line-height: 1.5em;
   margin-bottom: 1.5rem;
-  padding: 0 0.75em;
+  padding: 0.5em 0.75em;
   transition: background-color 0.24s ease-in-out;
   vertical-align: middle;
   width: 100%; }
@@ -1395,24 +1405,40 @@ body.home #main {
   padding: 0 0.75rem;
   width: 8.33333%; }
 
+#grid_col_2_12_fl > div:first-child {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 8.33333%;
+  clear: both;
+  float: left;
+  margin-right: auto; }
+#grid_col_2_12_fl > div:last-child {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 8.33333%;
+  float: right;
+  margin-left: auto; }
+
 #grid_col_3 > div {
   float: left;
   margin: 0 0 1.5rem;
   padding: 0 0.75rem;
   width: 33.33333%; }
 
-#grid_col_3_12 > div:first-child {
-  float: left;
-  margin: 0 0 1.5rem;
-  padding: 0 0.75rem;
-  width: 50%;
-  margin-left: 100%;
-  margin-right: 100%; }
-#grid_col_3_12 > div:nth-child(2) {
+#grid_col_3_12 > div {
   float: left;
   margin: 0 0 1.5rem;
   padding: 0 0.75rem;
   width: 8.33333%; }
+  #grid_col_3_12 > div:first-child {
+    float: left;
+    margin: 0 0 1.5rem;
+    padding: 0 0.75rem;
+    width: 8.33333%;
+    margin-left: 16.66667%;
+    margin-right: 16.66667%; }
 
 #grid_col_4 > div {
   float: left;
@@ -1442,15 +1468,44 @@ body.home #main {
     flex-direction: column;
     flex-grow: 0;
     margin: 0 0 1.5rem;
-    flex-basis: 0;
+    flex-basis: calc(8.33333% - 1.5rem);
     flex-grow: 1;
     margin-bottom: 1.5rem; }
     #flex_grid_auto > *:nth-child(n) {
       margin-left: 0.75rem;
       margin-right: 0.75rem; }
-    #flex_grid_auto > *:first-child {
-      margin-left: 0; }
+    #flex_grid_auto > *:nth-child(12n+12) {
+      margin-left: 0.75rem;
+      margin-right: 0; }
+    #flex_grid_auto > *:nth-child(12n+1) {
+      margin-left: 0;
+      margin-right: 0.75rem; }
     #flex_grid_auto > *:last-child {
+      margin-right: 0; }
+
+#flex_grid_auto_6 {
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row wrap; }
+  #flex_grid_auto_6 > * {
+    display: flex;
+    flex-basis: 100%;
+    flex-direction: column;
+    flex-grow: 0;
+    margin: 0 0 1.5rem;
+    flex-basis: calc(16.66667% - 1.5rem);
+    flex-grow: 1;
+    margin-bottom: 1.5rem; }
+    #flex_grid_auto_6 > *:nth-child(n) {
+      margin-left: 0.75rem;
+      margin-right: 0.75rem; }
+    #flex_grid_auto_6 > *:nth-child(6n+6) {
+      margin-left: 0.75rem;
+      margin-right: 0; }
+    #flex_grid_auto_6 > *:nth-child(6n+1) {
+      margin-left: 0;
+      margin-right: 0.75rem; }
+    #flex_grid_auto_6 > *:last-child {
       margin-right: 0; }
 
 /**/
