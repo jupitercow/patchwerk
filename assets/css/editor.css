@@ -371,7 +371,6 @@ ENTRY CONTENT IMAGES
 .alignnone, img.alignnone, figure.alignnone, dl.alignnone, .alignnone img {
   margin-left: 0;
   margin-right: 0;
-  width: 100% !important;
   height: auto; }
 
 /******************************************************************

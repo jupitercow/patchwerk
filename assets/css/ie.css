@@ -371,12 +371,12 @@ nav ul, nav ol {
   white-space: nowrap;
   overflow: hidden; }
 
-.clearfix, .cf, .comment-respond, #sidebar .side-content, .wrap, .grid_container {
+.clearfix, .cf, .comment-respond, #sidebar .side-content, .wrap, #old_grid, .grid_container {
   zoom: 1; }
-  .clearfix:before, .clearfix:after, .cf:before, .comment-respond:before, #sidebar .side-content:before, .wrap:before, .grid_container:before, .cf:after, .comment-respond:after, #sidebar .side-content:after, .wrap:after, .grid_container:after {
+  .clearfix:before, .clearfix:after, .cf:before, .comment-respond:before, #sidebar .side-content:before, .wrap:before, #old_grid:before, .grid_container:before, .cf:after, .comment-respond:after, #sidebar .side-content:after, .wrap:after, #old_grid:after, .grid_container:after {
     content: "";
     display: table; }
-  .clearfix:after, .cf:after, .comment-respond:after, #sidebar .side-content:after, .wrap:after, .grid_container:after {
+  .clearfix:after, .cf:after, .comment-respond:after, #sidebar .side-content:after, .wrap:after, #old_grid:after, .grid_container:after {
     clear: both; }
 
 /*
@@ -466,6 +466,223 @@ Stylesheet: Grid
  *                                    OR 'last' will designate this column as last
  * @param int/string	$right	The number of columns you would like to add to the right of this column
  */
+/******************************************************************
+
+Stylesheet: Grid
+
+******************************************************************/
+.goldlarge, .goldsmall, .m-all, .onecol, .m-1of12, .twocol, .m-2of12, .threecol, .m-3of12, .fourcol, .m-4of12, .fivecol, .m-5of12, .sixcol, .m-6of12, .sevencol, .m-7of12, .eightcol, .m-8of12, .ninecol, .m-9of12, .tencol, .m-10of12, .elevencol, .m-11of12, .l-all, .l-1of12, .l-2of12, .l-3of12, .l-4of12, .l-5of12, .l-6of12, .l-7of12, .l-8of12, .l-9of12, .l-10of12, .l-11of12 {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 100%; }
+
+.s-all {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 100%; }
+
+.s-1of6 {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 16.66667%; }
+
+.s-2of6 {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 16.66667%; }
+
+.s-3of6 {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 50%; }
+
+.s-4of6 {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 66.66667%; }
+
+.s-5of6 {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 83.33333%; }
+
+.goldlarge {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 61.8034%; }
+
+.goldsmall {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 38.1966%; }
+
+.m-all {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 100%; }
+
+.onecol, .m-1of12 {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 8.33333%; }
+
+.twocol, .m-2of12 {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 16.66667%; }
+
+.threecol, .m-3of12 {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 25%; }
+
+.fourcol, .m-4of12 {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 33.33333%; }
+
+.fivecol, .m-5of12 {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 41.66667%; }
+
+.sixcol, .m-6of12 {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 50%; }
+
+.sevencol, .m-7of12 {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 58.33333%; }
+
+.eightcol, .m-8of12 {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 66.66667%; }
+
+.ninecol, .m-9of12 {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 75%; }
+
+.tencol, .m-10of12 {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 83.33333%; }
+
+.elevencol, .m-11of12 {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 91.66667%; }
+
+.l-all {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 100%; }
+
+.l-1of12 {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 8.33333%; }
+
+.l-2of12 {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 16.66667%; }
+
+.l-3of12 {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 25%; }
+
+.l-4of12 {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 33.33333%; }
+
+.l-5of12 {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 41.66667%; }
+
+.l-6of12 {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 50%; }
+
+.l-7of12 {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 58.33333%; }
+
+.l-8of12 {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 66.66667%; }
+
+.l-9of12 {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 75%; }
+
+.l-10of12 {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 83.33333%; }
+
+.l-11of12 {
+  float: left;
+  margin: 0 0 1.5rem;
+  padding: 0 0.75rem;
+  width: 91.66667%; }
+
+.firstcol, .first-col {
+  clear: left;
+  padding-left: 0; }
+
+.lastcol, .last-col {
+  float: right;
+  padding-right: 0; }
+
+.left {
+  float: left; }
+
+.right {
+  float: right; }
+
 /* import fonts */
 /******************************************************************
 
@@ -757,7 +974,6 @@ ENTRY CONTENT IMAGES
 .alignnone, img.alignnone, figure.alignnone, dl.alignnone, .alignnone img {
   margin-left: 0;
   margin-right: 0;
-  width: 100% !important;
   height: auto; }
 
 /******************************************************************
@@ -831,9 +1047,9 @@ input[type="text"], input[type="password"], input[type="datetime"], input[type="
   display: block;
   font-size: 1em;
   height: 3em;
-  line-height: 1.5em;
+  line-height: 1em;
   margin-bottom: 1.5rem;
-  padding: 0.5em 0.75em;
+  padding: 0.75em 0.75em !important;
   transition: background-color 0.24s ease-in-out;
   vertical-align: middle;
   width: 100%; }
@@ -1046,91 +1262,47 @@ NAVIGATION STYLES
 nav {
   margin: 0;
   /* highlight current page */ }
+  nav li a, nav li a:visited {
+    display: block;
+    text-decoration: none;
+    padding: 0.75rem; }
+  nav li:hover > a, nav li:hover > a:visited, nav li a:hover, nav li a:focus {
+    background: #cc0000;
+    color: #fff; }
+  nav li ul.sub-menu li a, nav li ul.sub-menu li a:visited, nav li ul.children li a, nav li ul.children li a:visited {
+    padding-left: 30px; }
   nav li {
     float: left;
     position: relative;
     /* showing sub-menus */ }
-    nav li a, nav li a:visited {
-      display: block;
-      text-decoration: none;
-      padding: 0.75rem; }
-      nav li a:hover, nav li a:focus, nav li a:visited:hover, nav li a:visited:focus {
-        background: #cc0000;
-        color: #fff; }
     nav li ul.sub-menu, nav li ul.children {
-      margin-top: 0;
-      border: 1px solid #999;
-      border-top: 0;
-      position: absolute;
+      background: #222;
       overflow: hidden;
+      position: absolute;
       visibility: hidden;
       z-index: 8999; }
       nav li ul.sub-menu li a, nav li ul.sub-menu li a:visited, nav li ul.children li a, nav li ul.children li a:visited {
         padding-left: 10px;
         border-right: 0;
         display: block;
-        width: 180px;
-        padding-left: 30px; }
+        width: 180px; }
     nav li:hover ul {
       top: auto;
       overflow: visible;
       visibility: visible; }
 
 /*********************
-Simple Mobile Nav
-********************* /
-
-#mobile-nav {
-	display: block;
-	float: right;
-	text-align: right;
-	text-decoration: none;
-	color: $link_color;
-	cursor: pointer;
-	font-size: 1.125em;
-	&:hover, &:focus {
-		color: $link_hover;
-	}
-}
-
-#main-nav {
-	overflow: hidden;
-	max-height: 0;
-	transition-property: all;
-	transition-duration: 0.5s;
-	transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-
-	&.active {
-		max-height: 50rem;
-		transition-timing-function: ease-in;
-	}
-}
-
-@include breakpoint(medium)
-{
-	#mobile-nav {
-		display: none;
-	}
-
-	#main-nav {
-		//display: block !important;
-		max-height: 100px;
-	}
-}
-
-
-/*********************
 Side Drawer Mobile Nav
 *********************/
-#mobile-nav {
+body.drawer-nav #mobile-nav {
   color: red;
   cursor: pointer;
   display: block;
-  float: right;
-  font-size: 30px;
-  height: 68px;
-  right: 0px;
-  line-height: 70px;
+  float: left;
+  font-size: 1.5rem;
+  height: 3rem;
+  left: 0;
+  line-height: 3rem;
   padding: 0;
   position: absolute;
   overflow: hidden;
@@ -1138,34 +1310,23 @@ Side Drawer Mobile Nav
   text-decoration: none;
   top: 0;
   transition: all 0.3s ease-in-out;
-  width: 70px;
+  width: 3rem;
   z-index: 900; }
-  #mobile-nav.active {
+  body.drawer-nav #mobile-nav.active {
     background: #222;
     color: #fff; }
-
-#side-drawer {
+body.drawer-nav #side-drawer {
   background-color: #222;
   bottom: 0;
   box-shadow: inset 0 0 20px 0 rgba(0, 0, 0, 0.1);
   position: fixed;
-  right: 0;
+  left: 0;
+  text-align: left;
   top: 0;
-  transform: translateX(180px);
-  width: 180px;
-  z-index: 9999;
-  margin: 0 auto;
-  position: relative;
-  top: 0;
-  transform: none;
-  transition: none;
-  width: 100%;
-  z-index: 1; }
-  #side-drawer .nav-primary {
-    margin-left: auto;
-    margin-right: auto; }
-
-#nav-overlay {
+  transform: translateX(-300px);
+  width: 300px;
+  z-index: 9999; }
+body.drawer-nav #nav-overlay {
   background-color: #fff;
   bottom: 0;
   display: none;
@@ -1176,29 +1337,62 @@ Side Drawer Mobile Nav
   top: 0;
   transition: opacity 0.5s ease-in-out;
   z-index: 800; }
-
-#container {
+body.drawer-nav #container {
   transition: transform 0.2s ease-in-out; }
+body.drawer-nav #side-drawer {
+  margin: 0 auto;
+  position: relative;
+  top: 0;
+  transform: none;
+  transition: none;
+  width: 100%;
+  z-index: 1; }
+  body.drawer-nav #side-drawer .nav-primary {
+    margin-left: auto;
+    margin-right: auto; }
+body.drawer-nav #nav-overlay, body.drawer-nav #mobile-nav {
+  display: none !important; }
+body.drawer-nav #main-nav {
+  display: block !important; }
 
 .open-drawer #container {
-  transform: translateX(-180px); }
+  transform: translateX(300px); }
 .open-drawer .nav li a {
   text-align: left !important; }
 .open-drawer #nav-overlay {
   display: block;
   opacity: 0.5; }
-
-/*********************
-Toggle Mobile ON/OFF
-*********************/
 .open-drawer #container {
   transform: none; }
-
-.open-drawer #nav-overlay, #nav-overlay, #mobile-nav {
+.open-drawer #nav-overlay {
   display: none; }
 
-#main-nav {
-  display: block !important; }
+/*********************
+Simple Mobile Nav
+*********************/
+body.slide-nav #mobile-nav {
+  display: block;
+  float: right;
+  text-align: right;
+  text-decoration: none;
+  color: red;
+  cursor: pointer;
+  font-size: 1.125em; }
+  body.slide-nav #mobile-nav:hover, body.slide-nav #mobile-nav:focus {
+    color: #cc0000; }
+body.slide-nav #side-drawer {
+  overflow: hidden;
+  max-height: 0;
+  transition-property: all;
+  transition-duration: 0.5s;
+  transition-timing-function: cubic-bezier(0, 1, 0.5, 1); }
+  body.slide-nav #side-drawer.active {
+    max-height: 50rem;
+    transition-timing-function: ease-in; }
+body.slide-nav #mobile-nav {
+  display: none; }
+body.slide-nav #side-drawer {
+  max-height: 100px; }
 
 /* page navigation */
 /******************************************************************
@@ -1255,11 +1449,17 @@ Stylesheet: Header
 
 ******************************************************************/
 #header {
-  background: #222; }
+  background: #222;
+  text-align: center;
+  text-align: left; }
   #header #inner-header {
     position: relative; }
   #header #logo {
-    margin: 1.5rem 1.5rem 1.5rem 0.75rem; }
+    margin: 0 auto;
+    padding: 1.5rem; }
+  #header #logo {
+    margin: 0 auto;
+    padding-left: 0.75rem; }
 
 /* sidebar */
 /******************************************************************
@@ -1385,13 +1585,27 @@ body.home #main {
   padding: 0 0.75rem;
   width: 100%; }
 
+#old_grid {
+  background: #ffd100;
+  padding-left: -0.75rem;
+  padding-right: -0.75rem;
+  margin-bottom: 1.5rem; }
+  #old_grid > div > div {
+    background: #222;
+    color: #fff !important;
+    min-height: 10px;
+    outline: 1px solid yellow;
+    padding: 5px 10px; }
+
 .grid_container {
   background: #ffd100;
-  margin-bottom: 1em; }
+  margin-bottom: 1.5rem; }
   .grid_container > div > div {
     background: #222;
-    min-height: 25px;
-    outline: 1px solid yellow; }
+    color: #fff !important;
+    min-height: 10px;
+    outline: 1px solid yellow;
+    padding: 5px 10px; }
 
 #grid_col_2 > div {
   float: left;

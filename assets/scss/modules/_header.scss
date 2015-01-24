@@ -6,12 +6,24 @@ Stylesheet: Header
 
 #header {
 	background: $black;
+	text-align: center;
 
 	#inner-header {
 		position: relative;
 	}
 
 	#logo {
-		margin: $margin $margin $margin $gutter;
+		margin: 0 auto;
+		padding: $margin;
+	}
+
+	@include breakpoint(medium)
+	{
+		text-align: left;
+
+		#logo {
+			margin: 0 auto;
+			padding-left: $gutter;
+		}
 	}
 }

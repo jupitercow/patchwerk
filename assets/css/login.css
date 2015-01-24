@@ -85,9 +85,9 @@ input[type="text"], input[type="password"], input[type="datetime"], input[type="
   display: block;
   font-size: 1em;
   height: 3em;
-  line-height: 1.5em;
+  line-height: 1em;
   margin-bottom: 1.5rem;
-  padding: 0.5em 0.75em;
+  padding: 0.75em 0.75em !important;
   -webkit-transition: background-color 0.24s ease-in-out;
   transition: background-color 0.24s ease-in-out;
   vertical-align: middle;

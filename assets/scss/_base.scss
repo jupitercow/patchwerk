@@ -109,14 +109,37 @@ body.home {
 
 @mixin grid_item {
 	background: $black;
-	min-height: 25px;
+	color: $white !important;
+	min-height: 10px;
 	outline: 1px solid yellow;
+	padding: 5px 10px;
+}
+
+#classes,
+#classes_full {
+	@extend .cf;
+	background: #ffd100;
+	margin-bottom: $margin;
+	> div > div {
+		@include grid_item;
+	}
+}
+
+#classes_overflow {
+	margin-bottom: $margin;
+	> div {
+		@extend .cf;
+		background: #ffd100;
+		> div > div {
+			@include grid_item;
+		}
+	}
 }
 
 .grid_container {
 	@extend .cf;
 	background: #ffd100;
-	margin-bottom: 1em;
+	margin-bottom: $margin;
 	//padding: 1em;
 	> div > div {
 		@include grid_item;

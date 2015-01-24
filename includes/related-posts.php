@@ -13,7 +13,7 @@ function patch_related_posts( $limit )
 {
 	global $post;
 
-	if (! $limit ) $limit = 3;
+	if (! $limit ) { $limit = 3; }
 
 	echo '<ul id="related-posts">';
 	$tags = wp_get_post_tags( $post->ID, 'fields=slugs' );
@@ -30,9 +30,11 @@ function patch_related_posts( $limit )
 
 		if ( $related_posts->have_posts() )
 		{
-			while ( $related_posts->have_posts() ) : $related_posts->the_post();
+			while ( $related_posts->have_posts() )
+			{
+				$related_posts->the_post();
 				get_template_part( 'partials/related-post' );
-			endwhile;
+			}
 		}
 		else
 		{

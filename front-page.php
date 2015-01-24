@@ -4,6 +4,59 @@
 
 	<div class="wrap">
 
+		<div id="other">
+
+			<article>
+
+				<header class="article-header">
+					<h1 class="page-title"><?php the_title(); ?></h1>
+				</header>
+
+				<section class="entry-content" itemprop="articleBody">
+					<?php the_content(); ?>
+
+					<h2>Classes</h2>
+					<div id="classes" class="grid">
+						<div class="goldlarge"><div>goldlarge</div></div>
+						<div class="goldsmall last"><div>goldsmall</div></div>
+						<div class="m-all"><div>m-all</div></div>
+						<div class="m-1of12"><div>m-1of12</div></div>
+						<div class="m-2of12"><div>m-2of12</div></div>
+						<div class="m-3of12"><div>m-3of12</div></div>
+						<div class="m-4of12"><div>m-4of12</div></div>
+						<div class="m-1of12"><div>m-1of12</div></div>
+						<div class="m-1of12"><div>m-1of12</div></div>
+					</div>
+					<div id="classes_full" class="gridfull">
+						<div class="goldlarge"><div>goldlarge</div></div>
+						<div class="goldsmall last"><div>goldsmall</div></div>
+						<div class="m-all"><div>m-all</div></div>
+						<div class="m-1of12"><div>m-1of12</div></div>
+						<div class="m-2of12"><div>m-2of12</div></div>
+						<div class="m-3of12"><div>m-3of12</div></div>
+						<div class="m-4of12"><div>m-4of12</div></div>
+						<div class="m-1of12"><div>m-1of12</div></div>
+						<div class="m-1of12"><div>m-1of12</div></div>
+					</div>
+					<div id="classes_overflow" class="gridfull_overflow"><div>
+						<div class="goldlarge"><div>goldlarge</div></div>
+						<div class="goldsmall last"><div>goldsmall</div></div>
+						<div class="m-all"><div>m-all</div></div>
+						<div class="m-1of12"><div>m-1of12</div></div>
+						<div class="m-2of12"><div>m-2of12</div></div>
+						<div class="m-3of12"><div>m-3of12</div></div>
+						<div class="m-4of12"><div>m-4of12</div></div>
+						<div class="m-1of12"><div>m-1of12</div></div>
+						<div class="m-1of12"><div>m-1of12</div></div>
+					</div></div>
+				</section>
+
+			</article>
+
+		</div>
+
+		<hr />
+
 		<div id="main" role="main">
 
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
@@ -25,8 +78,8 @@
 	}
 }</code></pre>
 					<div id="grid_col_2" class="grid_container">
-						<div><div></div></div>
-						<div><div></div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
 					</div>
 
 					<h2>2 of 12 columns</h2>
@@ -37,8 +90,8 @@
 	}
 }</code></pre>
 					<div id="grid_col_2_12" class="grid_container">
-						<div><div></div></div>
-						<div><div></div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
 					</div>
 
 					<h2>2 of 12 columns, first/last</h2>
@@ -52,8 +105,8 @@
 	}
 }</code></pre>
 					<div id="grid_col_2_12_fl" class="grid_container">
-						<div><div></div></div>
-						<div><div></div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
 					</div>
 
 					<h2>3 columns</h2>
@@ -63,9 +116,9 @@
 	}
 }</code></pre>
 					<div id="grid_col_3" class="grid_container">
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
 					</div>
 
 					<h2>3 of 12 columns</h2>
@@ -80,9 +133,9 @@
 	}
 }</code></pre>
 					<div id="grid_col_3_12" class="grid_container">
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
 					</div>
 
 					<h2>4 columns</h2>
@@ -92,10 +145,10 @@
 	}
 }</code></pre>
 					<div id="grid_col_4" class="grid_container">
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
 					</div>
 
 					<h2>6 columns</h2>
@@ -105,12 +158,12 @@
 	}
 }</code></pre>
 					<div id="grid_col_6" class="grid_container">
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
 					</div>
 
 					<h2>12 columns</h2>
@@ -120,18 +173,18 @@
 	}
 }</code></pre>
 					<div id="grid_col_12" class="grid_container">
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
 					</div>
 
 					<h2>12 columns, unlimited items</h2>
@@ -140,78 +193,78 @@
 	@include flex_grid_auto(12);
 }</code></pre>
 					<div id="flex_grid_auto" class="grid_container">
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
 					</div>
 
 					<h2>6 columns, unlimited items</h2>
@@ -220,28 +273,28 @@
 	@include flex_grid_auto(6);
 }</code></pre>
 					<div id="flex_grid_auto_6" class="grid_container">
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
-						<div><div></div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
+						<div><div>&nbsp;</div></div>
 					</div>
 
 				</section>

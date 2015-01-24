@@ -47,7 +47,7 @@ function patch_enqueue()
 	{
 		/* call jQuery from Google and move to footer * /
 		wp_deregister_script('jquery');
-		wp_register_script('jquery', ('//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'), false, '1.11.0', true);
+		wp_register_script('jquery', ('//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'), false, '1.11.1', true);
 
 		/* move core jQuery to footer * /
 		wp_deregister_script('jquery');

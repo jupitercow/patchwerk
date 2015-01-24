@@ -1,0 +1,213 @@
+/******************************************************************
+
+Stylesheet: Grid
+
+******************************************************************/
+
+@mixin firstcol {
+	clear: left;
+	padding-left: 0;
+}
+@mixin lastcol {
+	float: right;
+	padding-right: 0;
+}
+
+
+.grid {
+	@include grid_container();
+}
+.gridfull {
+	@include grid_container('full');
+}
+.gridfull_overflow {
+	@include grid_container('overflow');
+}
+
+
+// Add basic grid item to each for default
+.goldlarge,
+.goldsmall,
+.m-all,
+.onecol,
+.m-1of12,
+.twocol,
+.m-2of12,
+.threecol,
+.m-3of12,
+.fourcol,
+.m-4of12,
+.fivecol,
+.m-5of12,
+.sixcol,
+.m-6of12,
+.sevencol,
+.m-7of12,
+.eightcol,
+.m-8of12,
+.ninecol,
+.m-9of12,
+.tencol,
+.m-10of12,
+.elevencol,
+.m-11of12,
+.l-all,
+.l-1of12,
+.l-2of12,
+.l-3of12,
+.l-4of12,
+.l-5of12,
+.l-6of12,
+.l-7of12,
+.l-8of12,
+.l-9of12,
+.l-10of12,
+.l-11of12 {
+	@include grid_col();
+}
+
+
+.s-all {
+	@include grid_col();
+}
+
+.s-1of6 {
+	@include grid_col(1,6);
+}
+.s-2of6 {
+	@include grid_col(2,12);
+}
+.s-3of6 {
+	@include grid_col(3,6);
+}
+.s-4of6 {
+	@include grid_col(4,6);
+}
+.s-5of6 {
+	@include grid_col(5,6);
+}
+
+
+@include breakpoint(medium)
+{
+	// Simple Golden Ratio
+	.goldlarge {
+		@include grid_col('large');
+	}
+	.goldsmall {
+		@include grid_col('small');
+	}
+
+	.m-all {
+		@include grid_col();
+	}
+
+	.onecol,
+	.m-1of12 {
+		@include grid_col(1,12);
+	}
+	.twocol,
+	.m-2of12 {
+		@include grid_col(2,12);
+	}
+	.threecol,
+	.m-3of12 {
+		@include grid_col(3,12);
+	}
+	.fourcol,
+	.m-4of12 {
+		@include grid_col(4,12);
+	}
+	.fivecol,
+	.m-5of12 {
+		@include grid_col(5,12);
+	}
+	.sixcol,
+	.m-6of12 {
+		@include grid_col(6,12);
+	}
+	.sevencol,
+	.m-7of12 {
+		@include grid_col(7,12);
+	}
+	.eightcol,
+	.m-8of12 {
+		@include grid_col(8,12);
+	}
+	.ninecol,
+	.m-9of12 {
+		@include grid_col(9,12);
+	}
+	.tencol,
+	.m-10of12 {
+		@include grid_col(10,12);
+	}
+	.elevencol,
+	.m-11of12 {
+		@include grid_col(11,12);
+	}
+}
+
+
+@include breakpoint(large)
+{
+	.l-all  {
+		@include grid_col();
+	}
+
+	.l-1of12 {
+		@include grid_col(1,12);
+	}
+	.l-2of12 {
+		@include grid_col(2,12);
+	}
+	.l-3of12 {
+		@include grid_col(3,12);
+	}
+	.l-4of12 {
+		@include grid_col(4,12);
+	}
+	.l-5of12 {
+		@include grid_col(5,12);
+	}
+	.l-6of12 {
+		@include grid_col(6,12);
+	}
+	.l-7of12 {
+		@include grid_col(7,12);
+	}
+	.l-8of12 {
+		@include grid_col(8,12);
+	}
+	.l-9of12 {
+		@include grid_col(9,12);
+	}
+	.l-10of12 {
+		@include grid_col(10,12);
+	}
+	.l-11of12 {
+		@include grid_col(11,12);
+	}
+}
+
+
+// the first column
+.firstcol,
+.first-col {
+	@include firstcol;
+}
+
+
+// the last column
+.lastcol,
+.last-col {
+	@include lastcol;
+}
+
+
+.left {
+	float: left;
+}
+.right {
+	float: right;
+}

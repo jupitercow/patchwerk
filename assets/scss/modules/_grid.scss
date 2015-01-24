@@ -4,6 +4,29 @@ Stylesheet: Grid
 
 ******************************************************************/
 
+
+@mixin grid_container( $type:'padded' ) {
+	@if 'full' == $type {
+		margin-left: -$gutter;
+		margin-right: -$gutter;
+		overflow: hidden;
+		padding-top: $margin;
+	}
+	@else if 'overflow' == $type {
+		overflow: hidden;
+		> div {
+			margin-left: -$gutter;
+			margin-right: -$gutter;
+			padding-top: $margin;
+		}
+	}
+	@else {
+		padding-left: $gutter;
+		padding-right: $gutter;
+		padding-top: $margin;
+	}
+}
+
 /**
  * Add a classic grid column. This version does not use flexbox and is good for most uses
  *
@@ -14,7 +37,7 @@ Stylesheet: Grid
  *                                    OR 'last' will designate this column as last
  * @param int/string	$right	The number of columns you would like to add to the right of this column
  */
-@mixin grid_col( $cols:all, $total:12, $left:0, $right:0 ) {
+@mixin grid_col( $cols:'all', $total:12, $left:0, $right:0 ) {
 	float: left;
 	margin: 0 0 $margin;
 	padding: 0 $gutter;
