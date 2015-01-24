@@ -51,7 +51,7 @@ ENTRY CONTENT IMAGES
 .alignnone, img.alignnone, figure.alignnone, dl.alignnone, .alignnone img  {
 	margin-left: 0;
 	margin-right: 0;
-	width: 100% !important;
+	max-width: 100%;
 	height: auto;
 }
 
@@ -118,13 +118,13 @@ HTML5 IMAGE GALLERY
 	    display: inline-block;
 	    width: 100%;
 	}
-@include breakpoint(medium) {
-	.gallery-item {
-		width: 25%;
+	@include breakpoint(medium) {
+		.gallery-item {
+			width: 25%;
+		}
+		img:hover {
+			opacity: .7;
+			transition: opacity .2s ease;
+		}
 	}
-	img:hover {
-		opacity: .7;
-		transition: opacity .2s ease;
-	}
-}
 }
