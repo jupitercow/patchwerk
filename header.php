@@ -30,7 +30,7 @@
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class('drawer-nav'); ?>>
 
 	<div id="container">
 
@@ -40,11 +40,12 @@
 
 				<h1 id="logo">
 					<a href="<?php echo home_url(); ?>" title="Home">
-						<?php /**/ echo get_option('blogname'); /**/ ?>
-						<?php /** / ?><img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.png" alt="<?php echo get_option('blogname'); ?>" /><?php /**/ ?>
+						<?php /** / echo get_option('blogname'); /**/ ?>
+						<?php /**/ ?><img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.png" alt="<?php echo get_option('blogname'); ?>" /><?php /**/ ?>
 					</a>
 				</h1>
 
+				<?php /* Use the 'slide-nav' class for both '#mobile-nav' and '#side-drawer' to switch off side drawer and use the simple slide up/down method */ ?>
 				<span id="mobile-nav">
 					<span class="icon-menu" aria-hidden="true"></span>
 					<span class="screen-reader-text">MENU</span>
