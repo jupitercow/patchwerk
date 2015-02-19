@@ -8,16 +8,26 @@ var ajax = {
 	},
 	send: function( url, callback, method, data, sync )
 	{
+		// Async by default
+		if ( undefined == sync ) { sync = true; }
+
+		// Get ajax object and open connection
 		var x = ajax.x();
 		x.open(method, url, sync);
+
+		// Add success callback
 		x.onreadystatechange = function() {
 			if ( 4 === x.readyState ) {
 				callback( x.responseText );
 			}
 		};
+
+		// Add post headers
 		if ( 'POST' === method ) {
 			x.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 		}
+
+		// Send the data
 		x.send(data);
 	},
 	get: function( url, data, callback, sync )

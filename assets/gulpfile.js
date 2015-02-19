@@ -1,4 +1,4 @@
-var environment = 'development', // 'production'
+var environment = 'development', // production | development
 	gulp = require('gulp'),
 	sass = require('gulp-sass'),
 	autoprefixer = require('gulp-autoprefixer'),
@@ -10,7 +10,6 @@ var environment = 'development', // 'production'
 	jsHint = require('gulp-jshint'),
 	concat = require('gulp-concat'),
 	notify = require('gulp-notify'),
-	clean = require('gulp-clean'),
 	cache = require('gulp-cache'),
 	imagemin = require('gulp-imagemin'),
 	//webp = require('gulp-webp'),
