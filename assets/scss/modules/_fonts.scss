@@ -57,6 +57,9 @@ FONT FACE
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.icon-info:before {
+	content: "\e60f";
+}
 .icon-git:before {
 	content: "\e609";
 }
@@ -98,4 +101,10 @@ FONT FACE
 }
 .icon-search:before {
 	content: "\e603";
+}
+.icon-arrow-left:before {
+	content: "\e60d";
+}
+.icon-arrow-right:before {
+	content: "\e60e";
 }

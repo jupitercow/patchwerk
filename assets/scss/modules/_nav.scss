@@ -14,6 +14,7 @@ nav {
 
 	li {
 		a, a:visited {
+			color: $white;
 			display: block;
 			text-decoration: none;
 			padding: $gutter;
@@ -150,12 +151,16 @@ body.drawer-nav {
 	@include breakpoint(medium)
 	{
 		#side-drawer {
+			background: none;
+			box-shadow: none;
+			float: right;
 			margin: 0 auto;
+			padding-top: 1.5em;
 			position: relative;
 			top: 0;
 			transform: none;
 			transition: none;
-			width: 100%;
+			width: 70%;
 			z-index: 1;
 
 			.nav-primary {
@@ -171,13 +176,21 @@ body.drawer-nav {
 
 		#main-nav {
 			display: block !important;
+			float: right;
+
+			ul {
+				@extend .cf;
+				display: block;
+				float: right;
+				text-align: right;
+			}
 		}
 
 	}
 
 }
 
-	.open-drawer {
+	body.open-drawer {
 		#container {
 			transform: translateX($drawer_width);
 		}
@@ -190,11 +203,11 @@ body.drawer-nav {
 
 		#nav-overlay {
 			display: block;
-			opacity: 0.5;
+			opacity: .5;
 		}
 
 		// Toggle Mobile ON/OFF
-		@include breakpoint(medium)
+		@include breakpoint(header)
 		{
 			#container {
 				transform: none;

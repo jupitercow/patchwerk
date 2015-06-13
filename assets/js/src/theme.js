@@ -27,10 +27,8 @@ var waitForFinalEvent = (function () {
 // how long to wait before deciding the resize has stopped, in ms. Around 50-100 should work ok.
 var timeToWaitForLast = 100;
 
-/*
- * Put all your regular jQuery in here.
-*/
-document.addEventListener('DOMContentLoaded', function(){
+
+document.addEventListener('DOMContentLoaded', function() {
 
 	/**
 	 * Adds the screen reader text to the icon's title so it will show on hover
@@ -38,8 +36,11 @@ document.addEventListener('DOMContentLoaded', function(){
 	var icons = document.querySelectorAll('span[aria-hidden=true]');
 	for ( var i = 0, len = icons.length; i < len; i++ )
 	{
-		var text = icons[i].parentNode.querySelector('.screen-reader-text').innerHTML;
-		icons[i].setAttribute('title', text);
+		var icon_parent = icons[i].parentNode.querySelector('.screen-reader-text');
+		if ( icon_parent ) {
+			var icon_text = icon_parent.innerHTML;
+			icons[i].setAttribute('title', icon_text);
+		}
 	}
 
 	/**

@@ -5,16 +5,26 @@ Stylesheet: Header
 ******************************************************************/
 
 #header {
-	background: $black;
 	text-align: center;
 
 	#inner-header {
+		padding: 0 $gutter 0 $margin;
 		position: relative;
 	}
 
 	#logo {
 		margin: 0 auto;
 		padding: $margin;
+		max-width: 199px;
+
+		a, img {
+			display: block;
+			width: 100%;
+		}
+
+		a:hover {
+			opacity: .7;
+		}
 	}
 
 	@include breakpoint(medium)
@@ -22,8 +32,10 @@ Stylesheet: Header
 		text-align: left;
 
 		#logo {
-			margin: 0 auto;
-			padding-left: $gutter;
+			float: left;
+			margin: 0;
+			padding-left: 0;
+			width: 30%;
 		}
 	}
 }

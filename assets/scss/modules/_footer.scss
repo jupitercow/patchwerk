@@ -4,10 +4,32 @@ Stylesheet: Footer
 
 ******************************************************************/
 
+$footer_height: 90px;
+
+// Sticky footer
+@include breakpoint(medium)
+{
+	#container {
+		min-height: 100%;
+		margin-bottom: (-$footer_height);
+
+		&:after {
+			content: "";
+			display: block;
+		}
+	}
+
+	#container:after,
+	#footer {
+		height: $footer_height;
+	}
+}
+
 #footer {
-	clear: both;
 	background-color: $black;
+	clear: both;
 	color: $gray_light;
+	overflow: hidden;
 
 	.copyright {
 		@include grid_col(all);

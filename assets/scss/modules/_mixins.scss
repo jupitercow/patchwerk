@@ -58,6 +58,8 @@ $text_color:        #333;
 $link_color:        red;
 $link_hover:        darken($link_color, 10%);
 
+$background:        $white;
+
 
 /*********************
 REUSABLE ITEMS
@@ -79,9 +81,11 @@ REUSABLE ITEMS
 BUTTONS
 *********************/
 
+$button_radius:     4px;
+
 %btn {
 	border: none;
-	border-radius: 4px;
+	border-radius: $button_radius;
 	color: $white;
 	cursor: pointer;
 	display: inline-block;
@@ -134,10 +138,16 @@ $old-ie:			false !default;
 $ignore-mqs:		false !default;
 
 // BREAK POINTS
-$small:				"screen and (min-width: 30em)"; // 480px
-$medium:			"screen and (min-width: 48em)";	// 768px
-$large:				"screen and (min-width: 64em)";	// 1024px
-$xlarge:			"screen and (min-width: 90em)";	// 1440px
+$small_width:       30em; // 480px
+$small:				"screen and (min-width: " + $small_width + ")";
+$medium_width:      48em; // 768px
+$medium:			"screen and (min-width: " + $medium_width + ")";
+$header_width:      59em; // 944px
+$header:			"screen and (min-width: " + $header_width + ")";
+$large_width:       64em; // 1024px
+$large:				"screen and (min-width: " + $large_width + ")";
+$xlarge_width:      90em; // 1440px
+$xlarge:			"screen and (min-width: " + $xlarge_width + ")";
 
 @mixin breakpoint($point) {
 	@if $ignore-mqs or $old-ie {
@@ -160,6 +170,9 @@ $xlarge:			"screen and (min-width: 90em)";	// 1440px
 		}
 		@if $point == small {
 			@media #{$small} { @content; }  // output small screen content
+		}
+		@else {
+			@media #{$point} { @content; }  // add a custom size manually
 		}
 	}
 }
