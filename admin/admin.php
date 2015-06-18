@@ -9,7 +9,7 @@ add_action( 'admin_head',                 'patch_admin_favicon', 11 );
 add_action( 'welcome_panel',              'patch_dashboard_welcome_cleanup' );
 add_action( 'admin_menu',                 'patch_remove_menu_pages' );
 add_action( 'wp_before_admin_bar_render', 'patch_customize_admin_bar' );
-add_action( 'admin_init',                 'patch_dependencies' );
+#add_action( 'admin_init',                 'patch_dependencies' );
 add_action( 'wp_before_admin_bar_render', 'patch_adminbar_titles' );
 add_action( 'wp_head', 					  'patch_admin_bar_styles' );
 
