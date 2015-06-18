@@ -34,7 +34,7 @@
 
 	<div id="container">
 
-		<header id="header" role="banner">  
+		<header id="header" role="banner">
 
 			<div id="inner-header" class="wrap cf">
 

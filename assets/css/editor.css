@@ -55,7 +55,7 @@ BUTTONS
   position: relative;
   text-decoration: none;
   -webkit-transition: background-color 0.2s ease-in-out;
-  transition: background-color 0.2s ease-in-out; }
+          transition: background-color 0.2s ease-in-out; }
   #wp-submit:hover, .search-submit:hover, .form-submit input:hover, .button:hover, .btn:hover, #wp-submit:focus, .search-submit:focus, .form-submit input:focus, .button:focus, .btn:focus {
     color: #fff;
     text-decoration: none; }
@@ -119,6 +119,9 @@ FONT FACE
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
+.icon-info:before {
+  content: "\e60f"; }
+
 .icon-git:before {
   content: "\e609"; }
 
@@ -160,6 +163,12 @@ FONT FACE
 
 .icon-search:before {
   content: "\e603"; }
+
+.icon-arrow-left:before {
+  content: "\e60d"; }
+
+.icon-arrow-right:before {
+  content: "\e60e"; }
 
 .svg-icon {
   font-size: 10px; }
@@ -217,7 +226,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
 
 h1, .h1 {
   font-size: 2.3125rem;
-  line-height: 1.24324; }
+  line-height: 1.243243243; }
 
 h2, .h2 {
   font-size: 1.75rem;
@@ -227,7 +236,7 @@ h2, .h2 {
 h3, .h3 {
   font-size: 1.3125rem;
   line-height: 1.5;
-  margin-bottom: 0.78571em; }
+  margin-bottom: .78571em; }
 
 h4, .h4 {
   font-size: 1rem;
@@ -371,6 +380,7 @@ ENTRY CONTENT IMAGES
 .alignnone, img.alignnone, figure.alignnone, dl.alignnone, .alignnone img {
   margin-left: 0;
   margin-right: 0;
+  max-width: 100%;
   height: auto; }
 
 /******************************************************************
@@ -409,14 +419,14 @@ HTML5 IMAGE GALLERY
     width: 50%;
     display: inline-block;
     vertical-align: top;
-    padding: 0.5em; }
+    padding: .5em; }
   .gallery img {
     display: block;
     -webkit-transform: translateZ(0);
-    transform: translateZ(0); }
+            transform: translateZ(0); }
   .gallery .gallery-caption {
     text-align: left;
-    padding: 0.25em 0; }
+    padding: .25em 0; }
   .gallery:after {
     content: '';
     display: inline-block;
@@ -424,9 +434,9 @@ HTML5 IMAGE GALLERY
   .gallery .gallery-item {
     width: 25%; }
   .gallery img:hover {
-    opacity: 0.7;
-    -webkit-transition: opacity 0.2s ease;
-    transition: opacity 0.2s ease; }
+    opacity: .7;
+    -webkit-transition: opacity .2s ease;
+            transition: opacity .2s ease; }
 
 /******************************************************************
 

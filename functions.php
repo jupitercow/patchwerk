@@ -32,7 +32,6 @@ require_once( 'includes/theme-support.php' );
 require_once( 'includes/enqueue.php' );
 require_once( 'includes/page-navi.php' );
 require_once( 'includes/related-posts.php' );
-require_once( 'includes/mobile.php' );
 #require_once( 'includes/custom-post-types.php' );		// Create custom post types
 #require_once( 'includes/nice-search.php' );			// Clean search urls
 #require_once( 'includes/assets-rewrites.php' );		// Rewrite theme assets to /assets and plugins to /plugins. DOES NOT WORK ON NGINX SERVERS LIKE WPENGINE

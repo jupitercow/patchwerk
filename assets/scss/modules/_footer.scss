@@ -35,4 +35,12 @@ $footer_height: 90px;
 		@include grid_col(all);
 		clear: both;
 	}
+
+	nav {
+		li {
+			a, a:visited {
+				color: $white;
+			}
+		}
+	}
 }

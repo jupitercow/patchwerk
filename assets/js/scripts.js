@@ -453,16 +453,26 @@ var ajax = {
 	},
 	send: function( url, callback, method, data, sync )
 	{
+		// Async by default
+		if ( undefined == sync ) { sync = true; }
+
+		// Get ajax object and open connection
 		var x = ajax.x();
 		x.open(method, url, sync);
+
+		// Add success callback
 		x.onreadystatechange = function() {
 			if ( 4 === x.readyState ) {
 				callback( x.responseText );
 			}
 		};
+
+		// Add post headers
 		if ( 'POST' === method ) {
 			x.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 		}
+
+		// Send the data
 		x.send(data);
 	},
 	get: function( url, data, callback, sync )
@@ -484,34 +494,25 @@ var ajax = {
 		ajax.send(url, callback, 'POST', query.join('&'), sync);
 	}
 };
-/*global patch,Modernizr: false*/
-ajax.post(
-	patch.ajaxurl,
-	{action: 'patch_mobile_classes'},
-	function( mobile_classes )
-	{
-		if ( mobile_classes )
-		{
-			Modernizr.addTest('mobile', function () {
-				return ( -1 < mobile_classes.indexOf('mobile') ) ? true : false;
-			});
-			Modernizr.addTest('phone', function () {
-				return ( -1 < mobile_classes.indexOf('phone') ) ? true : false;
-			});
-			Modernizr.addTest('tablet', function () {
-				return ( -1 < mobile_classes.indexOf('tablet') ) ? true : false;
-			});
-			Modernizr.addTest('desktop', function () {
-				return ( -1 < mobile_classes.indexOf('desktop') ) ? true : false;
-			});
-		}
-	}
-);
-document.addEventListener('DOMContentLoaded', function(){
+document.addEventListener('DOMContentLoaded', function() {
 
 	var mobile_nav   = document.getElementById('mobile-nav'),
 		container    = document.getElementById('container'),
 		nav_overlay  = document.createElement("div");
+
+	function updateMobileIcon()
+	{
+		// Update the mobile item icon
+		var icon = mobile_nav.querySelector('span');
+		icon.classList.toggle('icon-menu');
+		icon.classList.toggle('icon-close');
+
+		// Update the mobile item active status
+		mobile_nav.classList.toggle('active');
+
+		// Toggle page drawer "open" status
+		document.body.classList.toggle('open-drawer');
+	}
 
 	/**
 	 * Simple Mobile Nav
@@ -520,13 +521,8 @@ document.addEventListener('DOMContentLoaded', function(){
 	{
 		mobile_nav.addEventListener('click', function(e) {
 			e.preventDefault();
-			var icon = this.querySelector('span'),
-				nav  = document.getElementById('side-drawer');
-			this.classList.toggle('active');
-			icon.classList.toggle('icon-menu');
-			icon.classList.toggle('icon-close');
-			//nav.style.display = (! nav.style.display || 'none' == nav.style.display ) ? 'block' : 'none';
-			nav.classList.toggle('active');
+			document.getElementById('side-drawer').classList.toggle('active');
+			updateMobileIcon();
 		});
 	}
 
@@ -542,17 +538,13 @@ document.addEventListener('DOMContentLoaded', function(){
 		// Click button
 		mobile_nav.addEventListener('click', function(e) {
 			e.preventDefault();
-			var icon = this.querySelector('span');
-			document.body.classList.toggle('open-drawer');
-			this.classList.toggle('active');
-			icon.classList.toggle('icon-menu');
-			icon.classList.toggle('icon-close');
+			updateMobileIcon();
 		});
 
 		// Click overlay
 		nav_overlay.addEventListener('click', function(e) {
-			document.body.classList.remove('open-drawer');
-			mobile_nav.classList.remove('active');
+			e.preventDefault();
+			updateMobileIcon();
 		});
 	}
 	/**/
@@ -587,10 +579,8 @@ var waitForFinalEvent = (function () {
 // how long to wait before deciding the resize has stopped, in ms. Around 50-100 should work ok.
 var timeToWaitForLast = 100;
 
-/*
- * Put all your regular jQuery in here.
-*/
-document.addEventListener('DOMContentLoaded', function(){
+
+document.addEventListener('DOMContentLoaded', function() {
 
 	/**
 	 * Adds the screen reader text to the icon's title so it will show on hover
@@ -598,8 +588,11 @@ document.addEventListener('DOMContentLoaded', function(){
 	var icons = document.querySelectorAll('span[aria-hidden=true]');
 	for ( var i = 0, len = icons.length; i < len; i++ )
 	{
-		var text = icons[i].parentNode.querySelector('.screen-reader-text').innerHTML;
-		icons[i].setAttribute('title', text);
+		var icon_parent = icons[i].parentNode.querySelector('.screen-reader-text');
+		if ( icon_parent ) {
+			var icon_text = icon_parent.innerHTML;
+			icons[i].setAttribute('title', icon_text);
+		}
 	}
 
 	/**
