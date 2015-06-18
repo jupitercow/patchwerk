@@ -24,6 +24,7 @@ require_once( 'admin/login.php' );
 require_once( 'admin/tinymce.php' );
 #require_once( 'admin/dashboard-widget.php' ); 			// A basic example to show instructions
 #require_once( 'admin/recently-updated-content.php' ); 	// Shows recently updated content. REQUIRES customization
+#require_once( 'admin/required_plugins.php' );          // Manage requirements
 
 // Front end
 require_once( 'includes/cleanup.php' );
