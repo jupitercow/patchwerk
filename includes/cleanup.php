@@ -17,6 +17,8 @@ function patch_cleanup()
 	add_filter( 'the_content',                'patch_filter_ptags_on_images' );
 	// cleaning up excerpt
 	add_filter( 'excerpt_more',               'patch_excerpt_more' );
+	// excerpt length
+	add_filter( 'excerpt_length',             'patch_excerpt_length', 999 );
 }
 
 /**
@@ -30,6 +32,9 @@ function patch_head_cleanup()
 	// Remove shortlink from head and header
 	remove_action( 'wp_head',            'wp_shortlink_wp_head', 10, 0 );
 	remove_action( 'template_redirect',  'wp_shortlink_header', 11, 0 );
+	// Emoji
+	remove_action( 'wp_head',            'print_emoji_detection_script', 7 );
+	remove_action( 'wp_print_styles',    'print_emoji_styles' );
 	// category feeds
 	remove_action( 'wp_head',            'feed_links_extra', 3 );
 	// post and comment feeds
@@ -82,6 +87,16 @@ function patch_excerpt_more( $more )
 {
 	global $post;
 	return "&hellip;" . ' <a class="excerpt-read-more" href="'. get_permalink($post->ID) . '" title="Read ' . get_the_title($post->ID).'">Read more &raquo;</a>';
+}
+
+/**
+ * Change the excerpt length
+ *
+ * @return	int New total words
+ */
+function patch_excerpt_length( $length )
+{
+	return 30;
 }
 
 /**

@@ -19,7 +19,7 @@ add_image_size( 'custom-thumb-300', 300, 100, true );
 
 /**
  * Example widgetized areas
- */
+ * /
 add_action( 'widgets_init', 'custom_register_sidebars' );
 function custom_register_sidebars()
 {
@@ -63,7 +63,7 @@ function custom_theme_support()
 		)
 	);
 			
-	/* adding post format support */
+	/* adding post format support * /
 	add_theme_support( 'post-formats',
 		array(
 			'aside',             // title less blurb
@@ -85,6 +85,30 @@ function custom_theme_support()
 	register_nav_menus( array(
 		'main-nav'   => 'Main Navigation',     // main nav in header
 		'footer-nav' => 'Footer Navigation',   // links in footer
+	) );
+}
+
+
+/**
+ * Add options page support
+ * /
+if ( function_exists('acf_add_options_page') )
+{
+	acf_add_options_page( array(
+		'page_title' => get_option('blogname') . ' Settings',
+		'menu_title' => 'Site Settings',
+	) );
+}
+
+
+/**
+ * Add options page support
+ * /
+if ( function_exists('acf_add_options_page') )
+{
+	acf_add_options_page( array(
+		'page_title' => get_option('blogname') . ' Settings',
+		'menu_title' => 'Site Settings',
 	) );
 }
 

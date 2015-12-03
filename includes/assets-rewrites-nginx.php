@@ -23,6 +23,7 @@ add_filter( 'request', function( $query_vars ) {
 
 	// Check if pagename starts with "assets/'
 	if (! empty($query_vars['error']) && isset( $_SERVER['REQUEST_URI'] ) && false !== stripos( $_SERVER['REQUEST_URI'], '/assets/' ) ) {
+		global $wp_filesystem;
 
 		$file = trailingslashit( get_template_directory() ) . $_SERVER['REQUEST_URI'];
 
@@ -70,7 +71,8 @@ add_filter( 'request', function( $query_vars ) {
 			}
 
 			// If we made it this far, just serve the file
-			readfile( $file );
+			#read-file( $file );
+			echo $wp_filesystem->get_contents( $file );
 			exit();
 		}
 	}

@@ -31,6 +31,18 @@ body {
 	line-height: 1.5;				// 24px
 	color: $text_color;
 	font-family: $sans_serif;
+	fill: $text_color;
+}
+
+svg {
+	fill: currentColor;
+	&.icon {
+		display: inline-block;
+		vertical-align: baseline;
+	}
+	use {
+		pointer-events: none;
+	}
 }
 
 

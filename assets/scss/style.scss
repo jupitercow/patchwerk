@@ -8,13 +8,7 @@ Author: Jupitercow
 ******************************************************************/
 
 /*********************
-IMPORTING LIBRARIES
-*********************/
-
-
-
-/*********************
-IMPORTING MODULES
+IMPORTING BASE
 *********************/
 
 /* normalize: http://necolas.github.io/normalize.css/ */
@@ -35,6 +29,18 @@ IMPORTING MODULES
 
 /* typography */
 @import "modules/typography";
+
+
+/*********************
+IMPORTING LIBRARIES
+*********************/
+
+//@import "libs/colorbox";
+
+
+/*********************
+IMPORTING MODULES
+*********************/
 
 /* wordpress content images */
 @import "modules/wpimage";
@@ -65,7 +71,7 @@ IMPORTING MODULES
 
 
 /*********************
-BASE
+SITE
 *********************/
 
 @import "base";

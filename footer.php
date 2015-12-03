@@ -1,4 +1,4 @@
-		</div>
+		</div><?php // End #container ?>
 
 		<footer id="footer" role="contentinfo">
 
@@ -18,7 +18,7 @@
 				)); ?>
 				</nav>
 
-				<p class="copyright">&copy; <?php echo date('Y'); ?> <?php bloginfo( 'name' ); ?>.</p>
+				<p class="copyright">&copy; <?php echo date_i18n('Y'); ?> <?php echo get_option( 'blogname' ); ?>.</p>
 
 			</div>
 

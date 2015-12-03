@@ -165,7 +165,7 @@ function patch_customize_admin_bar()
  */
 function patch_admin_bar_permissions( $content )
 {
-	return ( current_user_can('edit_others_posts') ) ? true : false;
+	return ( current_user_can('edit_others_posts') ) ? $content : false;
 }
 
 /**
