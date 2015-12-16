@@ -9,7 +9,7 @@
  * Plugin Name:       Patchwerk Image Loader
  * Plugin URI:        https://wordpress.org/plugins/patch-image-loader/
  * Description:       Simply the process of loading images for mobile and desktop and lazy loading.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            Jupitercow
  * Author URI:        http://Jupitercow.com/
  * Contributor:       Jake Snyder
@@ -83,23 +83,28 @@ class Patch_Image_Loader
 	public function create_image( $args )
 	{
 		$defaults = array(
-			'alt'           => '',
-			'background'    => '',
-			'caption'       => '',
-			'class'         => '',
-			'data'          => null,
-			'desktop'       => '',
-			'height'        => null,
-			'image'         => '',
-			'img'           => '<img id="%s" class="%s" alt="%s"%s />',
-			'lazy'          => 'view',
-			'mobile'        => null,
-			'mobile_height' => null,
-			'mobile_width'  => null,
-			'noscript'      => '<noscript>%s</noscript>',
-			'post'          => null,
-			'width'         => null,
-			'spinner'       => get_template_directory_uri() . '/assets/img/loading.gif',
+			'alt'            => '',
+			'background'     => false,
+			'caption'        => '',
+			'class'          => '',
+			'data'           => null,
+			'desktop'        => '',
+			'height'         => null,
+			'image'          => '',
+			'img'            => '<img id="%s" class="%s" alt="%s"%s />',
+			'lazy'           => 'view',
+			'mobile'         => null,
+			'mobile_height'  => null,
+			'mobile_width'   => null,
+			'noscript'       => '<noscript>%s</noscript>',
+			'opacity'        => null,
+			'parallax'       => false,
+			'parallax_bleed' => null,
+			'parallax_speed' => null,
+			'post'           => null,
+			'width'          => null,
+			'spinner'        => get_template_directory_uri() . '/assets/img/loading.gif',
+			'styles'         => '',
 		);
 		$args = wp_parse_args( $args, $defaults );
 		extract( $args );
@@ -117,6 +122,26 @@ class Patch_Image_Loader
 			),
 		);
 
+		// Add default data items
+		if ( is_array($data) )
+		{
+			$info['data'] = $data;
+		}
+
+		// If parallax is set, add the class and necessary data
+		if ( $parallax )
+		{
+			$info['class'] .= " parallax";
+			if ( $parallax_bleed )
+			{
+				$info['data']['bleed'] = $parallax_bleed;
+			}
+			if ( $parallax_speed )
+			{
+				$info['data']['speed'] = $parallax_speed;
+			}
+		}
+
 		// Add lazy load to data
 		if ( $lazy )
 		{
@@ -125,6 +150,11 @@ class Patch_Image_Loader
 			} else {
 				$info['data']['lazy'] = 'true';
 			}
+		}
+
+		// Add opacity
+		if ( $opacity ) {
+			$info['data']['opacity'] = $opacity;
 		}
 
 		// Add background to data
@@ -149,7 +179,7 @@ class Patch_Image_Loader
 			$info['caption'] = ( $caption ) ? $caption : $attach_post->post_excerpt;
 
 			// If desktop is set to a size, use it, otherwise set to default
-			if ( ! is_string($mobile) || false == ($src = wp_get_attachment_image_src($attach_id, $desktop)) ) {
+			if ( ! is_string($desktop) || false == ($src = wp_get_attachment_image_src($attach_id, $desktop)) ) {
 				$desktop = 'large';
 				$src = wp_get_attachment_image_src($attach_id, $desktop);
 			}
@@ -240,11 +270,12 @@ class Patch_Image_Loader
 		}
 
 		$output = '';
+		$style = ' style="' . $styles;
 		if ( $background )
 		{
 			if ( $spinner ) {
 				$spinner = esc_attr($spinner);
-				$data = " style=\"background-image: url($spinner);\" $data";
+				$style  .= " background-image: url($spinner);";
 			}
 			$output = sprintf(' id="%s" class="%s" %s', esc_attr($info['id']), esc_attr($info['class']), $data); 
 		}
@@ -259,6 +290,8 @@ class Patch_Image_Loader
 			$noscript_img  = sprintf( $img, esc_attr($info['id']), esc_attr($info['class']) . " {$this->prefix}-load-no-script", esc_attr($info['alt']), $data );
 			$output       .= sprintf( $noscript, $noscript_img );
 		}
+		$style .= '"';
+		$data   = " $style $data";
 
 		echo $output;
 	}

@@ -9,7 +9,7 @@ var ajax = {
 	send: function( url, callback, method, data, sync )
 	{
 		// Async by default
-		if ( undefined == sync ) { sync = true; }
+		if ( undefined === sync ) { sync = true; }
 
 		// Get ajax object and open connection
 		var x = ajax.x();

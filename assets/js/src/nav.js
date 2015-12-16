@@ -71,25 +71,26 @@ document.addEventListener('DOMContentLoaded', function() {
 	 *
 	 * NEEDS TESTING
 	 */
-	var nav          = document.getElementById('main-nav'),
-		nav_anchors  = nav.querySelectorAll('a'),
-		nav_children = document.querySelectorAll('.menu-item-has-children > a');
+	var nav         = document.getElementById('main-nav'),
+		navAnchors  = nav.querySelectorAll('a'),
+		navChildren = document.querySelectorAll('.menu-item-has-children > a'),
+		i;
 
-	if ( nav_anchors )
+	if ( navAnchors )
 	{
-		for ( var i = 0, len = nav_anchors.length; i < len; i++ )
+		for ( i=0; i<navAnchors.length; i++ )
 		{
-			nav_anchors[i].addEventListener('focus blur', function() {
+			navAnchors[i].addEventListener('focus blur', function() {
 				this.parentNode.classList.toggle( 'focus' );
 			});
 		}
 	}
 
-	if ( 'ontouchstart' in window && nav_children )
+	if ( 'ontouchstart' in window && navChildren )
 	{
-		for ( var i = 0, len = nav_children.length; i < len; i++ )
+		for ( i=0; i<navChildren.length; i++ )
 		{
-			nav_children[i].addEventListener('focus blur', function(e) {
+			navChildren[i].addEventListener('focus blur', function(e) {
 				var el = this.parentNode;
 				if ( ! el.classList.contains( 'focus' ) )
 				{

@@ -35,39 +35,35 @@ IMPORTING BASE
 IMPORTING LIBRARIES
 *********************/
 
-//@import "libs/colorbox";
+@import "libs/colorbox";
+@import "libs/slick";
 
 
 /*********************
 IMPORTING MODULES
 *********************/
 
-/* wordpress content images */
+// WordPress content images
 @import "modules/wpimage";
 
-/* forms */
 @import "modules/forms";
 
-/* search form */
 @import "modules/searchform";
 
-/* comments */
 @import "modules/comments";
 
-/* site navigation */
 @import "modules/nav";
 
-/* page navigation */
 @import "modules/pagenavi";
 
-/* header */
 @import "modules/header";
 
-/* sidebar */
 @import "modules/sidebar";
 
-/* footer */
 @import "modules/footer";
+
+// Slider
+@import "modules/slick-theme";
 
 
 /*********************

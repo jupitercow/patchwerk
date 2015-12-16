@@ -5,7 +5,7 @@
  */
 function updateViewportDimensions() {
 	var w=window,d=document,e=d.documentElement,g=d.getElementsByTagName('body')[0],x=w.innerWidth||e.clientWidth||g.clientWidth,y=w.innerHeight||e.clientHeight||g.clientHeight;
-	return { width:x,height:y }
+	return { width:x,height:y };
 }
 // setting the viewport width
 var viewport = updateViewportDimensions();
@@ -29,52 +29,67 @@ var timeToWaitForLast = 100;
 
 
 document.addEventListener('DOMContentLoaded', function() {
-//jQuery(document).ready(function($) {
+
+	if ( ! patch.mobile_breakpoint ) {
+		patch.mobile_breakpoint = 768;
+	}
+
 
 	/**
 	 * Adds the screen reader text to the icon's title so it will show on hover
 	 */
-	var icons = document.querySelectorAll('span[aria-hidden=true]');
-	for ( var i = 0, len = icons.length; i < len; i++ )
+	function patch_addScreenReaderHover()
 	{
-		var icon_parent = icons[i].parentNode.querySelector('.screen-reader-text');
-		if ( icon_parent ) {
-			var icon_text = icon_parent.innerHTML;
-			icons[i].setAttribute('title', icon_text);
+		var icons = document.querySelectorAll('span[aria-hidden=true]');
+		for ( var i=0, len=icons.length; i<len; i++ )
+		{
+			var icon_parent = icons[i].parentNode.querySelector('.screen-reader-text');
+			if ( icon_parent ) {
+				var icon_text = icon_parent.innerHTML;
+				icons[i].setAttribute('title', icon_text);
+			}
 		}
 	}
+	patch_addScreenReaderHover();
 
 
 	/**
 	 * Open share links in new window & select all on the share permalink field
 	 */
-	var share_links = document.getElementsByClassName('share-links');
-	if ( share_links )
+	function patch_shareLinks()
 	{
-		for ( var i=0; i<share_links.length; i++ )
+		var shareLinks = document.getElementsByClassName('share-links'),
+			i,
+			shareSelectClick = function(e) {
+				this.select();
+			},
+			shareAnchorClick = function(e) {
+				e.preventDefault();
+				window.open( this.getAttribute('href'), 'Share', 'height=470, width=550, top='+(window.height/2 - 225) +', left='+window.width/2 +', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');
+			};
+		if ( shareLinks )
 		{
-			var share_anchors = share_links[i].getElementsByTagName('a'),
-				share_url     = share_links[i].querySelector('.share-url');
-
-			if ( share_url )
+			for ( i=0; i<shareLinks.length; i++ )
 			{
-				share_url.addEventListener('click', function(e) {
-					this.select();
-				});
-			}
+				var shareAnchors = shareLinks[i].getElementsByTagName('a'),
+					shareUrl     = shareLinks[i].querySelector('.share-url');
 
-			if ( share_anchors )
-			{
-				for ( var i=0; i<share_anchors.length; i++ )
+				if ( shareUrl )
 				{
-					share_anchors[i].addEventListener('click', function(e){
-						e.preventDefault();
-						window.open( this.getAttribute('href'), 'Share', 'height=470, width=550, top='+(window.height/2 - 225) +', left='+window.width/2 +', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');
-					});
+					shareUrl.addEventListener('click', shareSelectClick);
+				}
+
+				if ( shareAnchors )
+				{
+					for ( i=0; i<shareAnchors.length; i++ )
+					{
+						shareAnchors[i].addEventListener('click', shareAnchorClick);
+					}
 				}
 			}
 		}
 	}
+	patch_shareLinks();
 
 
 	/**
@@ -87,6 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		cur_top           = 0,
 		cur_pos           = window_height - header_height,
 		scrollParent      = document.documentElement.scrollTop ? document.documentElement : document.body;
+
 
 	/**
 	 * Resize image slides to fill window height
@@ -104,6 +120,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		waitForFinalEvent(resizeHandler, timeToWaitForLast, 'mainresize');
 	});
 
+
 	/**
 	 * Checks the scroll position to see if the header should be fixed or not
 	 * /
@@ -118,5 +135,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	window.addEventListener('scroll', function() {
 		waitForFinalEvent(scrollHandler, timeToWaitForLast, 'mainscroll');
 	}, false);
+	/**/
 
-}); /* end of as page load scripts */
+});

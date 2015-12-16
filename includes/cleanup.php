@@ -35,6 +35,9 @@ function patch_head_cleanup()
 	// Emoji
 	remove_action( 'wp_head',            'print_emoji_detection_script', 7 );
 	remove_action( 'wp_print_styles',    'print_emoji_styles' );
+	// Remove REST API links
+	remove_action( 'wp_head',            'rest_output_link_wp_head', 10 );
+	remove_action( 'wp_head',            'wp_oembed_add_discovery_links', 10 );
 	// category feeds
 	remove_action( 'wp_head',            'feed_links_extra', 3 );
 	// post and comment feeds

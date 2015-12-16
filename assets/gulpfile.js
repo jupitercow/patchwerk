@@ -1,34 +1,14 @@
-var environment  = 'development', // production | development
-	gulp         = require('gulp'),
-	autoprefixer = require('gulp-autoprefixer'),
-	cache        = require('gulp-cache'),
-	cheerio      = require('gulp-cheerio'),
-	clean        = require('gulp-clean'),
-	concat       = require('gulp-concat'),
-	favicons     = require('favicons'),
-	filter       = require('gulp-filter'),
-	gulpif       = require('gulp-if'),
-	imagemin     = require('gulp-imagemin'),
-	jsHint       = require('gulp-jshint'),
-	minifycss    = require('gulp-minify-css'),
-	notify       = require('gulp-notify'),
-	plumber      = require('gulp-plumber'),
-	rename       = require('gulp-rename'),
-	sass         = require('gulp-sass'),
-	stripDebug   = require('gulp-strip-debug'),
-	//svg2png      = require('gulp-svg2png'),
-	svgmin       = require('gulp-svgmin'),
-	//svgSprite    = require('gulp-svg-sprite'),
-	svgstore     = require('gulp-svgstore'),
-	uglify       = require('gulp-uglify'),
-	//webp         = require('gulp-webp'),
-	compression  = ( 'production' === environment ? 'compressed' : 'expanded' );
+var environment = 'development', // production | development
+	gulp        = require('gulp'),
+	p           = require('gulp-load-plugins')(), // {DEBUG: true}
+	compression = ( 'production' === environment ? 'compressed' : 'expanded' );
+
 
 /**
  * Default error handler
  */
 var onError = function( error ) {
-	notify.onError({
+	p.notify.onError({
 		title:    "Gulp",
 		subtitle: "Failure!",
 		message:  "Error: <%= error.message %>"
@@ -43,12 +23,15 @@ var onError = function( error ) {
 function base_style( filename, message )
 {
 	return gulp.src( filename )
-		.pipe( plumber({ errorHandler: onError }) )
-		.pipe( sass({ style: compression }) )
-		.pipe( autoprefixer('last 2 versions', 'safari 5', 'ie 9', 'opera 12.1', 'ios 6', 'android 4') )
-		.pipe( gulpif('production'==environment, minifycss()) )
+		.pipe( p.plumber({ errorHandler: onError }) )
+		.pipe( p.sass({ style: compression }) )
+		.pipe( p.autoprefixer('last 2 versions', 'safari 5', 'ie 9', 'opera 12.1', 'ios 6', 'android 4') )
+		.pipe( p.if('production'==environment, p.minifyCss()) )
 		.pipe( gulp.dest('css') )
-		.pipe( notify({ message: message }) );
+		.pipe( p.notify({
+			title: 'Styles',
+			message: message
+		}) );
 }
 
 
@@ -56,29 +39,35 @@ function base_style( filename, message )
  * CSS
  */
 gulp.task('styles', function() {
-	return base_style('scss/style.scss', 'Styles task complete');
+	return base_style('scss/style.scss', 'Main complete');
 });
 gulp.task('styles-login', function() {
-	return base_style('scss/login.scss', 'Log in styles task complete');
+	return base_style('scss/login.scss', 'Log in complete');
 });
 gulp.task('styles-editor', function() {
-	return base_style('scss/editor.scss', 'Editor styles task complete');
+	return base_style('scss/editor.scss', 'Editor complete');
 });
 gulp.task('styles-ie', function() {
 	return gulp.src('scss/ie.scss')
-		.pipe( sass({ style: compression }) )
-		.pipe( autoprefixer('ie 7', 'ie 8') )
-		.pipe( gulpif('production'==environment, minifycss()) )
+		.pipe( p.sass({ style: compression }) )
+		.pipe( p.autoprefixer('ie 7', 'ie 8') )
+		.pipe( p.if('production'==environment, p.minifyCss()) )
 		.pipe( gulp.dest('css') )
-		.pipe( notify({ message: 'IE styles task complete' }) );
+		.pipe( p.notify({
+			title: 'Styles',
+			message: 'IE complete'
+		}) );
 });
 gulp.task('styles-admin', function() {
 	return gulp.src( '../admin/assets/scss/admin.scss' )
-		.pipe( sass({ style: compression }) )
-		.pipe( autoprefixer('last 2 versions', 'safari 5', 'ie 9', 'opera 12.1', 'ios 6', 'android 4') )
-		.pipe( gulpif('production'==environment, minifycss()) )
+		.pipe( p.sass({ style: compression }) )
+		.pipe( p.autoprefixer('last 2 versions', 'safari 5', 'ie 9', 'opera 12.1', 'ios 6', 'android 4') )
+		.pipe( p.if('production'==environment, p.minifyCss()) )
 		.pipe( gulp.dest('../admin/assets/css') )
-		.pipe( notify({ message: 'Admin styles task complete' }) );
+		.pipe( p.notify({
+			title: 'Styles',
+			message: 'Admin complete'
+		}) );
 });
 
 
@@ -87,27 +76,33 @@ gulp.task('styles-admin', function() {
  */
 gulp.task('images', function () {
 	return gulp.src(['img/src/*', '!img/src/screenshot.png'])
-		.pipe( imagemin({
+		.pipe( p.imagemin({
 			progressive: true,
 			svgoPlugins: [{removeViewBox: false}],
 		}) )
 		.pipe( gulp.dest('img') )
 		//.pipe( webp() )
-		.pipe( notify({ message: 'Image task complete' }) );
+		.pipe( p.notify({
+			title: 'Images',
+			message: 'Main complete'
+		}) );
 });
 
 gulp.task('screenshot', function () {
 	return gulp.src('img/src/screenshot.png')
-		.pipe( imagemin({
+		.pipe( p.imagemin({
 			progressive: true,
 			optimizationLevel: 5,
 		}) )
 		.pipe( gulp.dest('..') )
-		.pipe( notify({ message: 'Screenshot task complete' }) );
+		.pipe( p.notify({
+			title: 'Images',
+			message: 'Screenshot complete'
+		}) );
 });
 
 gulp.task('favicons', function(cb) {
-	favicons({
+	p.favicons({
 		files: {
 			src: 'img/src/favicon.png',
 			dest: 'img',
@@ -129,7 +124,48 @@ gulp.task('favicons', function(cb) {
 			windows: false,
 			yandex: false,
 		},
-	});
+	})
+	.pipe( p.notify({
+		title: 'Images',
+		message: 'Favicon complete'
+	}) );
+
+
+
+    return gulp.src('img/src/favicon.png')
+	    .pipe( p.favicons({
+	        background: "#fff",
+	        path: "",
+	        display: "standalone",
+	        html: null,
+	        logging: false,
+	        online: false,
+			files: {
+				html: null,
+				iconsPath: null,
+				androidManifest: null,
+				browserConfig: null,
+				firefoxManifest: null,
+				yandexManifest: null,
+			},
+			icons: {
+				android: false,
+				appleIcon: false,
+				appleStartup: false,
+				coast: false,
+				favicons: true,
+				firefox: false,
+				opengraph: false,
+				twitter: false,
+				windows: false,
+				yandex: false,
+			},
+	    }))
+	    .pipe( gulp.dest('img') )
+		.pipe( p.notify({
+			title: 'Images',
+			message: 'Favicon complete'
+		}) );
 });
 
 
@@ -138,10 +174,10 @@ gulp.task('favicons', function(cb) {
  */
 gulp.task('icons', function() {
 	return gulp.src('icons/src/*')
-		//.pipe( gulpif('production'==environment, svgmin()) )
-		.pipe( gulpif('production'==environment, svgmin()) )
-		.pipe( svgstore({ inlineSvg: true }) )
-		.pipe( cheerio({
+		//.pipe( p.if('production'==environment, svgmin()) )
+		.pipe( p.if('production'==environment, p.svgmin()) )
+		.pipe( p.svgstore({ inlineSvg: true }) )
+		.pipe( p.cheerio({
 			run: function( $, file ) {
 				$('svg').addClass('hide');
 				$('symbol[id!=logo]').find('path,g,polygon,circle,rect').removeAttr('fill');
@@ -149,9 +185,12 @@ gulp.task('icons', function() {
 			},
 			parserOptions: { xmlMode: true },
 		}))
-		.pipe( rename('icons.svg') )
+		.pipe( p.rename('icons.svg') )
 		.pipe( gulp.dest('icons') )
-		.pipe( notify({ message: 'Icon task complete' }) );
+		.pipe( p.notify({
+			title: 'Images',
+			message: 'Icons complete'
+		}) );
 		//.pipe( reload({ stream:true }) );
 });
 
@@ -166,30 +205,23 @@ gulp.task('scripts', function() {
 			'js/src/theme.js',
 			'js/src/**/*.js',
 		])
-		.pipe( concat('scripts.js') )
-		.pipe( jsHint() )
-		.pipe( gulpif('production'==environment, stripDebug()) )
-		.pipe( gulpif('production'==environment, uglify()) )
+		.pipe( p.jshint() )
+		.pipe( p.jshint.reporter('jshint-stylish') )
+		.pipe( p.jshint.reporter('fail') )
+		.pipe( p.notify(function(file) {
+			return {
+				title: 'JSHint',
+				message: 'Passed: ' + file.relative,
+			};
+        }) )
+		.pipe( p.concat('scripts.js') )
+		.pipe( p.if('production'==environment, p.stripDebug()) )
+		.pipe( p.if('production'==environment, p.uglify()) )
 		.pipe( gulp.dest('js') )
-		.pipe( notify({ message: 'Scripts task complete' }) );
-});
-
-gulp.task('pdf_script', function() {
-	return gulp.src('js/pdfsrc/pdf.js')
-		.pipe( gulpif('production'==environment, stripDebug()) )
-		.pipe( gulpif('production'==environment, uglify()) )
-		.pipe( rename('pdf.js') )
-		.pipe( gulp.dest('js') )
-		.pipe( notify({ message: 'PDF.js task complete' }) );
-});
-
-gulp.task('pdf_worker_script', function() {
-	return gulp.src('js/pdfsrc/pdf.worker.js')
-		.pipe( gulpif('production'==environment, stripDebug()) )
-		.pipe( gulpif('production'==environment, uglify()) )
-		.pipe( rename('pdf.worker.js') )
-		.pipe( gulp.dest('js') )
-		.pipe( notify({ message: 'PDF.js Worker task complete' }) );
+		.pipe( p.notify({
+			title: 'Scripts',
+			message: 'Main complete'
+		}) );
 });
 
 
@@ -197,15 +229,7 @@ gulp.task('pdf_worker_script', function() {
  * default: gulp
  */
 gulp.task('default', function() {
-	gulp.start('images', 'icons', 'styles', 'styles-login', 'styles-editor', 'styles-ie', 'scripts');
-});
-
-
-/**
- * pdf worker
- */
-gulp.task('pdf', function() {
-	gulp.start('pdf_script', 'pdf_worker_script');
+	gulp.start('styles', 'styles-login', 'styles-editor', 'styles-ie', 'scripts');
 });
 
 
